@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  
+  <title>ClimACT| Sitemap</title><!--PAGE TITLE Eg:Home,Feedback-->
+
+  
+  <link rel="stylesheet" href="../style.css">
+<style>
+
+  /* layout */
+  main {
+      width: 100%;
+      max-width: none;
+      margin: 0;
+      padding: 0;
+  }
+
+
+  .main-content {
+      width: 100%;
+      max-width: none;
+      margin: 0;
+      padding: 0;
+  }
+
+
+  .sitemap-wrapper {
+      width: 100%;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      /* background-color:white; */
+      background: rgba(255, 255, 255, 0.5);
+      backdrop-filter: blur(18px);
+      border-radius:40px;
+      width: 95%;
+      margin: 0 auto;
+      margin-top:20px;
+  }
+
+
+  .sitemap-svg {
+      display: block;
+      width: 100%;
+      height: auto;
+      font-family: 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  }
+
+  .visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+
+  /*Connector lines — dark green*/
+
+  .connector-lines line {
+    stroke: #1b5e20;     
+    stroke-width: 4;
+    stroke-linecap: round;
+  }
+
+  /*Box links — shared interactive behaviour*/
+
+  .site-box-link {
+    cursor: pointer;
+    outline: none;
+    transition: transform 0.2s ease;
+  }
+
+  /* Hover + keyboard focus: slight lift */
+  .site-box-link:hover,
+  .site-box-link:focus-visible {
+    transform: translateY(-10px);
+  }
+
+  /* Keyboard focus ring for accessibility */
+  .site-box-link:focus-visible .site-box {
+    stroke-width: 5;
+    outline: 5px solid #66bb6a;
+    outline-offset: 5px;
+  }
+
+  /*Standard page boxes — white with green border */
+
+  .site-box {
+    fill: #ffffff;
+    stroke: #2e7d32;      
+    stroke-width: 3;
+    filter: drop-shadow(0 5px 10px rgba(27, 94, 32, 0.18));
+    transition: fill 0.2s ease, stroke 0.2s ease, filter 0.2s ease;
+  }
+
+  .site-box-link:hover .site-box,
+  .site-box-link:focus-visible .site-box {
+    fill: #e8f5e9;        
+    stroke: #1b5e20;      
+    filter: drop-shadow(0 14px 24px rgba(27, 94, 32, 0.28));
+  }
+
+  /*Root box — Splash Screen (solid dark green) */
+
+  .root-box {
+    fill: #1b5e20;
+    stroke: #14401a;
+    stroke-width: 3;
+    filter: drop-shadow(0 7px 17px rgba(27, 94, 32, 0.35));
+  }
+
+  .root-link:hover .root-box,
+  .root-link:focus-visible .root-box {
+    fill: #2e7d32;
+    stroke: #14401a;
+    filter: drop-shadow(0 17px 27px rgba(27, 94, 32, 0.4));
+  }
+
+  /*Text labels */
+
+  .site-box-text {
+    font-size: 26px;
+    font-weight: bold;
+    fill: #1b3b1e;
+    text-anchor: middle;
+    dominant-baseline: middle;
+    pointer-events: none; 
+    user-select: none;
+  }
+
+  .root-text {
+    font-size: 32px;
+    font-weight: 700;
+    fill: #ffffff;
+  }
+
+
+</style>
+
+</head>
+<body>
+  <span id="top"></span>
+  <a href="#top" class="go-top" aria-label="Go back to top of page">↑</a>
+  <header class="site-header">
+    <div class="header-inner">
+
+    
+    <!--WEBSITE BRANDING & LOGO-->
+      <a href="../HomePage/home.html" class="site-identity">
+        <img src="../Assets/Images/logo.png" alt="ClimACT website logo" class="logo">
+        <span class="site-name">ClimACT</span>
+      </a>
+
+      
+      <nav class="main-nav" aria-label="Main navigation">
+        <ul>
+          <li><a href="../HomePage/home.html">Home</a></li>
+            <li><a href="../Gallery/gallery.html">Gallery</a></li>
+            <li><a href="../AIS/ais.html">Impact Simulator</a></li>
+            <li><a href="../Feedback/feedback.html">Feedback</a></li>
+            <li><a href="../Team/team.html">Team</a></li>
+            <li><a href="../Profile/profile.html">User Profile</a></li>
+            <li><a href="../Sitemap/sitemap.html" class="active">Sitemap</a></li>
+        </ul>
+      </nav>
+
+    </div>
+  </header>
+
+  <section class="page-hero">
+    <div class="hero-content">
+
+      <h1>Website Sitemap</h1>
+      <p>Navigate the ClimACT website using the sitemap below.</p>
+    </div>
+      
+    </section>
+
+    <main>
+
+      <div class="main-content">
+
+        <!--main content-->
+        <section class="sitemap-wrapper" aria-labelledby="sitemap-heading">
+          <h2 id="sitemap-heading" class="visually-hidden">ClimACT website sitemap</h2>
+
+          <svg
+            class="sitemap-svg"
+            viewBox="0 0 2975 714"
+            role="group">
+
+            <!--lines -->
+            <g class="connector-lines" aria-hidden="true">
+
+              <!-- Splash Screen -> Row 1 bus -->
+              <line x1="748" y1="153" x2="748" y2="238" />
+              <line x1="748"  y1="238" x2="2788" y2="238" />
+
+              <!-- Row 1 bus -> each Row 1 box -->
+              <line x1="748"  y1="238" x2="748"  y2="289" />
+              <line x1="1088" y1="238" x2="1088" y2="289" />
+              <line x1="1428" y1="238" x2="1428" y2="289" />
+              <line x1="1768" y1="238" x2="1768" y2="289" />
+              <line x1="2108" y1="238" x2="2108" y2="289" />
+              <line x1="2448" y1="238" x2="2448" y2="289" />
+              <line x1="2788" y1="238" x2="2788" y2="289" />
+
+              <!-- Home -> Row 2 bus -->
+              <line x1="748" y1="383" x2="748" y2="468" />
+              <line x1="187" y1="468" x2="1309" y2="468" />
+
+              <!-- Row 2 bus -> each Row 2 box -->
+              <line x1="187"  y1="468" x2="187"  y2="519" />
+              <line x1="561"  y1="468" x2="561"  y2="519" />
+              <line x1="935"  y1="468" x2="935"  y2="519" />
+              <line x1="1309" y1="468" x2="1309" y2="519" />
+            </g>
+
+            <!--splash-->
+            <a class="site-box-link root-link" href="../SplashScreen/splash.html" aria-label="Splash Screen, root page">
+              <rect id="node-splash" class="site-box root-box" x="520" y="51" width="476" height="102" rx="27" />
+              <text class="site-box-text root-text" x="748" y="102">Splash Screen</text>
+            </a>
+
+            <!--main nav-->
+            <a class="site-box-link" href="../HomePage/home.html" aria-label="Home page">
+              <rect id="node-home" class="site-box" x="621" y="289" width="255" height="94" rx="24" />
+              <text class="site-box-text" x="748" y="336">Home</text>
+            </a>
+
+            <a class="site-box-link" href="../Gallery/gallery.html" aria-label="Gallery page">
+              <rect id="node-gallery" class="site-box" x="961" y="289" width="255" height="94" rx="24" />
+              <text class="site-box-text" x="1088" y="336">Gallery</text>
+            </a>
+
+            <a class="site-box-link" href="../AIS/ais.html" aria-label="Impact Simulator page">
+              <rect id="node-ais" class="site-box" x="1301" y="289" width="255" height="94" rx="24" />
+              <text class="site-box-text" x="1428" y="336">Impact Simulator</text>
+            </a>
+
+            <a class="site-box-link" href="../Feedback/feedback.html" aria-label="Feedback page">
+              <rect id="node-feedback" class="site-box" x="1641" y="289" width="255" height="94" rx="24" />
+              <text class="site-box-text" x="1768" y="336">Feedback</text>
+            </a>
+
+            <a class="site-box-link" href="../Team/team.html" aria-label="Team page">
+              <rect id="node-team" class="site-box" x="1981" y="289" width="255" height="94" rx="24" />
+              <text class="site-box-text" x="2108" y="336">Team</text>
+            </a>
+
+            <a class="site-box-link" href="../Profile/profile.html" aria-label="User Profile page">
+              <rect id="node-profile" class="site-box" x="2321" y="289" width="255" height="94" rx="24" />
+              <text class="site-box-text" x="2448" y="336">User Profile</text>
+            </a>
+
+            <a class="site-box-link" href="../Sitemap/sitemap.html" aria-label="Sitemap page, current page">
+              <rect id="node-sitemap" class="site-box" x="2661" y="289" width="255" height="94" rx="24" />
+              <text class="site-box-text" x="2788" y="336">Sitemap</text>
+            </a>
+
+            <!-- children home  -->
+            <a class="site-box-link" href="../ContentPage/content_ST1.html" aria-label="Carbon Footprints section, part of Home page">
+              <rect id="node-carbon" class="site-box" x="34" y="519" width="306" height="102" rx="24" />
+              <text class="site-box-text" x="187" y="574">Carbon Footprints</text>
+            </a>
+
+            <a class="site-box-link" href="../ContentPage/content_ST2.html" aria-label="Renewable Energy section, part of Home page">
+              <rect id="node-renewable" class="site-box" x="408" y="519" width="306" height="102" rx="24" />
+              <text class="site-box-text" x="561" y="574">Renewable Energy</text>
+            </a>
+
+            <a class="site-box-link" href="../ContentPage/content_ST3.html" aria-label="Protecting Ecosystems section, part of Home page">
+              <rect id="node-ecosystems" class="site-box" x="782" y="519" width="306" height="102" rx="24" />
+              <text class="site-box-text" x="935" y="574">Protecting Ecosystems</text>
+            </a>
+
+            <a class="site-box-link" href="../ContentPage/content_ST4.html" aria-label="Community Climate Action section, part of Home page">
+                <rect id="node-community" class="site-box" x="1156" y="519" width="335" height="102" rx="24" />
+
+                <text class="site-box-text" x="1323.5" y="560">
+                    <tspan x="1323.5" dy="0">Community</tspan>
+                    <tspan x="1323.5" dy="30">Climate Action</tspan>
+                </text>
+            </a>
+
+          </svg>
+        </section>
+      </div>
+    </main>
+
+  <!-- FOOTER-->
+  <footer class="site-footer">
+    <div class="footer-inner">
+
+      <div class="footer-col">
+        <h3>ClimACT</h3>
+        <p> A student-built website raising awareness of<br> SDG 13 - Climate Action.</p>
+      </div>
+
+    <div class="footer-col">
+        <h3>Pages</h3>
+
+        <ul>
+            <li><a href="../HomePage/home.html">Home</a></li>
+            <li><a href="../AIS/ais.html">Impact Simulator</a></li>
+            <li><a href="../Gallery/gallery.html">Gallery</a></li>
+            <li><a href="../Feedback/feedback.html">Feedback</a></li>
+            <li><a href="../Team/team.html">Team</a></li>
+            <li><a href="../Profile/profile.html">User Profile</a></li>
+            <li><a href="../Sitemap/sitemap.html">Sitemap</a></li>
+        </ul>
+
+    </div>
+
+      <div class="footer-col">
+        <h3>Quick Links</h3>
+         
+        <a href="../PageEditor/pageEditor_ST4.html">Page Editor</a>   
+        <a href="../ValidationPage/validation_ST4.html">Validation Page</a>
+        <a href="../Accessibility/accessibility.html">Accessibility </a>
+       <p>G. C. Rajarathna (W2212859) - Student 4<br>
+        Profile Page &amp; Sitemap Page</p>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <span>© 2026 ClimAct – University of Westminster</span>
+      <span>Built for 4COSC011W | SDG 13 Climate Action</span>
+    </div>
+  </footer>
+</body>
+</html>

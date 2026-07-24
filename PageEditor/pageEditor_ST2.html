@@ -1,0 +1,563 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editor Page</title>
+
+    <link rel="stylesheet" href="css/pageEditor_validator.css"> 
+    <link rel="stylesheet" href="../style.css">
+
+    <style>
+
+        .corepages{
+            color:black;
+        }
+        .corepages ul{
+            list-style: none;
+        }
+        .meeting-table{
+            width:100%;
+            border-collapse:collapse;
+            margin:25px 0;
+            font-size:16px;
+            background:#fff;
+        }
+        table{
+            color:black;
+        }
+
+        .meeting-table th,
+        .meeting-table td{
+            border:1px solid #222;
+            padding:10px;
+            vertical-align:top;
+        }
+
+        .meeting-table thead tr:first-child th{
+            background:#3b3b3b;
+            color:#fff;
+            font-size:18px;
+            font-weight:bold;
+            text-align:center;
+        }
+
+        .meeting-table thead tr:nth-child(2) th{
+            background:#3b3b3b;
+            color:#fff;
+            font-weight:bold;
+            text-align:center;
+        }
+
+        .meeting-table td:nth-child(1){
+            width:60px;
+            text-align:center;
+        }
+
+        .meeting-table td:nth-child(2){
+            width:120px;
+        }
+
+        .meeting-table td:nth-child(3){
+            width:110px;
+        }
+
+        .meeting-table td:nth-child(4){
+            width:240px;
+        }
+
+        .meeting-table td:nth-child(5){
+            width:90px;
+            text-align:center;
+        }
+
+        .meeting-table td:nth-child(6){
+            width:auto;
+        }
+
+        .meeting-table tbody tr:nth-child(even){
+            background:#f8f8f8;
+        }
+
+        .meeting-table tbody tr:hover{
+            background:#ececec;
+        }
+        .site-footer{
+            text-align:left;
+        }
+        .container{
+            text-align:left;
+        }
+
+        .ref{
+            color:black;
+            text-align:left;
+        }
+        .ref a{
+            color:blue;
+        }
+
+    </style>
+
+</head>
+<body>
+    
+
+    <header id="top">
+          <header class="site-header">
+    <div class="header-inner">
+
+    
+      <a href="../HomePage/home.html" class="site-identity">
+        <img src="../Assets/Images/logo.png" alt="ClimACT website logo" class="logo">
+        <span class="site-name">ClimACT</span>
+      </a>
+
+      
+    <nav class="main-nav" aria-label="Main navigation">
+        <ul>
+            <li><a href="../HomePage/home.html">Home</a></li>
+            <li><a href="../Gallery/gallery.html">Gallery</a></li>
+            <li><a href="../AIS/ais.html">Impact Simulator</a></li>
+            <li><a href="../Feedback/feedback.html">Feedback</a></li>
+            <li><a href="../Team/team.html">Team</a></li>
+            <li><a href="../Profile/profile.html">User Profile</a></li>
+            <li><a href="../Sitemap/sitemap.html">Sitemap</a></li>
+        </ul>
+    </nav>
+
+    </div>
+    </header>
+
+
+    <section class="stud">
+        <h2>P. S.Hettiarachchi, CLIMA, Student 2</h2>
+    </section>
+
+    <div class="container">
+        <main>
+            <section>
+                <h2 id="splash">Splash Screen</h2>
+
+                <h3>Technical Description</h3>
+                <p>
+                    The Splash Screen was developed using semantic HTML elements including
+                    <code>header</code>, <code>main</code>, <code>section</code>, and
+                    <code>button</code> to create a simple and well-structured introduction
+                    to the website. A full-screen background image, website title, mission
+                    statement, group member list, and a Skip Intro button were included to
+                    provide users with a welcoming first impression.
+                </p>
+
+                <p>
+                    CSS was used to create the overall layout, full-screen background,
+                    loading animation, typography, and responsive positioning of page
+                    elements. The design follows the group's colour palette and branding to
+                    provide a smooth transition into the Home Page.
+                </p>
+
+                <p>
+                    JavaScript was used to display the countdown timer that updates every
+                    second before automatically redirecting users to the Home Page. The Skip
+                    Intro button allows users to bypass the countdown and immediately enter
+                    the website, improving usability.
+                </p>
+
+                <h3>Accessibility</h3>
+                <p>
+                    Accessibility was considered throughout the Splash Screen by using a
+                    logical heading structure, descriptive alternative text for images, and
+                    sufficient colour contrast between text and the background image to
+                    improve readability. The Skip Intro button is clearly labelled and easy
+                    to identify.
+                </p>
+
+                <h3>Link to the Validation Page</h3>
+                <p>
+                    <a href="../ValidationPage/validation_ST2.html#splashVal" style="color:blue">
+                        Validation Page
+                    </a>
+                </p>
+
+                <h3>Link to the Page</h3>
+                <p>
+                    <a href="../SplashScreen/splash.html" style="color:blue">
+                        Splash Screen
+                    </a>
+                </p>
+            </section>
+
+
+            <section>
+                <h2 id="ais">Action Impact Simulator</h2>
+
+                <h3>Technical Description</h3>
+                <p>
+                    The Action Impact Simulator was created using semantic HTML elements
+                    such as <code>main</code>, <code>section</code>, <code>article</code>,
+                    <code>button</code>, and <code>figure</code>. Six action cards were
+                    designed to present climate-friendly activities together with images,
+                    descriptions, and impact scores in a structured and easy-to-read
+                    layout.
+                </p>
+
+                <p>
+                    Embedded CSS was used to organise the simulator using responsive card
+                    layouts, spacing, typography, and visual feedback for selected actions.
+                    Additional styling was applied to the impact summary panel, journey
+                    image, and background images while maintaining consistency with the
+                    website's Global CSS.
+                </p>
+
+                <p>
+                    JavaScript controls all interactive behaviour on the page. Users can
+                    select or remove action cards, calculate their total impact score,
+                    receive dynamic feedback, update the impact level, change the journey
+                    illustration, switch the page background according to their score, and
+                    reset the simulator using the Reset button.
+                </p>
+
+                <h3>Accessibility</h3>
+                <p>
+                    Accessibility was improved by using semantic HTML, descriptive
+                    alternative text for all images, readable colour contrast, and clear
+                    visual indicators showing selected actions. Interactive controls are
+                    clearly labelled to help users understand the simulator.
+                </p>
+
+                <h3>Link to the Validation Page</h3>
+                <p>
+                    <a href="../ValidationPage/validation_ST2.html#aisVal" style="color:blue">
+                        Validation Page
+                    </a>
+                </p>
+
+                <h3>Link to the Page</h3>
+                <p>
+                    <a href="../AIS/ais.html" style="color:blue">
+                        Action Impact Simulator
+                    </a>
+                </p>
+            </section>
+
+
+            <section>
+                <h2 id="content">Content Page (Renewable Energy)</h2>
+
+                <h3>Technical Description</h3>
+                <p>
+                    The Renewable Energy Content Page was developed using semantic HTML
+                    elements including <code>main</code>, <code>section</code>,
+                    <code>figure</code>, <code>nav</code>, and heading elements to organise
+                    information into clearly structured sections. Internal navigation links
+                    allow users to quickly move between different topics within the page.
+                </p>
+
+                <p>
+                    Embedded CSS was used to style the table of contents, content sections,
+                    images, callout boxes, and the fixed Go to Top button. Images were made
+                    responsive and enhanced using borders, spacing, rounded corners, and
+                    shadows while maintaining consistency with the website's shared design.
+                </p>
+
+                <p>
+                    The page uses HTML anchor links for internal navigation and a fixed Go
+                    to Top button implemented entirely with HTML and CSS. The content was
+                    written specifically for the website and focuses on renewable energy,
+                    explaining different energy sources and encouraging users to adopt more
+                    sustainable practices.
+                </p>
+
+                <h3>Accessibility</h3>
+                <p>
+                    Accessibility was considered by using semantic HTML, a logical heading
+                    hierarchy, descriptive alternative text for every image, readable text,
+                    and clear internal navigation. The fixed Go to Top button allows users
+                    to easily return to the beginning of the page without using JavaScript.
+                </p>
+
+                <h3>Link to the Validation Page</h3>
+                <p>
+                    <a href="../ValidationPage/validation_ST2.html#contentVal" style="color:blue">
+                        Validation Page
+                    </a>
+                </p>
+
+                <h3>Link to the Page</h3>
+                <p>
+                    <a href="../ContentPage/content_ST2.html" style="color:blue">
+                        Renewable Energy (Content Page)
+                    </a>
+                </p>
+            </section>
+
+
+            <section>
+                <h2 id="challenges">Challenges and Lessons Learned</h2>
+
+                <p>
+                    One of the main challenges during development was creating an engaging
+                    Splash Screen that provided a smooth introduction to the website while
+                    meeting all coursework requirements. Implementing the countdown timer,
+                    automatic redirect, CSS loading animation, and Skip Intro button required
+                    careful testing to ensure they worked together correctly without affecting
+                    the user experience.
+                </p>
+
+                <p>
+                    Developing the Action Impact Simulator was another significant challenge.
+                    Implementing the JavaScript logic to calculate impact scores, update the
+                    feedback panel, change the journey image, and switch background images
+                    dynamically required careful planning and debugging. The Renewable Energy
+                    Content Page also required organising a large amount of information into
+                    well-structured sections while providing clear internal navigation and
+                    maintaining consistency with the shared website design.
+                </p>
+
+                <p>
+                    Throughout this project, I improved my understanding of semantic HTML,
+                    CSS layouts, responsive design, JavaScript event handling, DOM
+                    manipulation, accessibility, and HTML validation. I also learned the
+                    importance of regular testing, debugging, and collaborating with team
+                    members to ensure all pages worked consistently across the website.
+                </p>
+            </section>
+
+
+            <section>
+                <h2 id="compliance">Compliance</h2>
+
+                <p>
+                    My pages were developed in accordance with JANET web publishing
+                    guidelines by using clear, accessible, and well-structured HTML.
+                    Semantic elements such as <code>header</code>, <code>main</code>,
+                    <code>section</code>, <code>nav</code>, and <code>footer</code> were
+                    used to create a logical document structure that improves accessibility,
+                    readability, and maintainability.
+                </p>
+
+                <p>
+                    Accessibility was considered throughout the Splash Screen, Action Impact
+                    Simulator, and Renewable Energy Content Page. Descriptive alternative
+                    text was provided for images, heading levels follow a logical hierarchy,
+                    colour choices provide sufficient contrast, and interactive elements are
+                    clearly labelled. Internal navigation, the fixed "Go to Top" button, and
+                    semantic HTML also help improve usability for a wide range of users.
+                </p>
+
+                <p>
+                    External resources such as royalty-free images and learning materials
+                    were used responsibly and acknowledged in the References section where
+                    appropriate. All implemented pages were validated using the W3C Nu HTML
+                    Checker to identify and correct errors before submission, helping ensure
+                    compliance with web standards and coursework requirements.
+                </p>
+            </section>
+
+            <section>
+                <h2 id="group">Group Meetings and Individual Contribution Log</h2>
+
+                <p>
+                    The following log summarises the meetings attended during the project
+                    and highlights my individual contributions as Student 2.
+                </p>
+
+                <table>
+
+                    <thead>
+                        <tr>
+                            <th>Meeting</th>
+                            <th>Date &amp; Time</th>
+                            <th>Format</th>
+                            <th>Objective</th>
+                            <th>Attended</th>
+                            <th>Your Individual Contribution</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+
+                        <tr>
+                            <td>1</td>
+                            <td>6 June 2026</td>
+                            <td>Online</td>
+                            <td>Select the SDG topic and assign individual responsibilities.</td>
+                            <td>Yes</td>
+                            <td>I agreed to take responsibility for the Splash Screen, Action Impact Simulator, Renewable Energy Content Page, Page Editor, and Validation Page.</td>
+                        </tr>
+
+                        <tr>
+                            <td>2</td>
+                            <td>12 June 2026</td>
+                            <td>Face-to-face</td>
+                            <td>Discuss the website design and create a consistent layout.</td>
+                            <td>Yes</td>
+                            <td>I contributed ideas for the Splash Screen, discussed the layout of the Action Impact Simulator, and worked with the team to maintain consistent navigation, colours, and overall website styling.</td>
+                        </tr>
+
+                        <tr>
+                            <td>3</td>
+                            <td>22 June 2026</td>
+                            <td>Online</td>
+                            <td>Review individual progress and identify any issues.</td>
+                            <td>Yes</td>
+                            <td>I presented the first versions of my Splash Screen and Action Impact Simulator, received feedback from the group, and improved the layout, accessibility, and interactive features.</td>
+                        </tr>
+
+                        <tr>
+                            <td>4</td>
+                            <td>9 July 2026</td>
+                            <td>Face-to-face</td>
+                            <td>Review completed content pages and improve consistency.</td>
+                            <td>Yes</td>
+                            <td>I completed the Renewable Energy Content Page, added internal navigation and images, and ensured it linked correctly with the Home page and the other website pages.</td>
+                        </tr>
+
+                        <tr>
+                            <td>5</td>
+                            <td>17 July 2026</td>
+                            <td>Face-to-face</td>
+                            <td>Test navigation and website functionality.</td>
+                            <td>Yes</td>
+                            <td>I tested the Action Impact Simulator, verified page navigation, checked image paths, fixed layout issues, and confirmed my pages validated successfully.</td>
+                        </tr>
+
+                        <tr>
+                            <td>6</td>
+                            <td>19 July 2026</td>
+                            <td>Online</td>
+                            <td>Final review before submission.</td>
+                            <td>Yes</td>
+                            <td>I completed my Page Editor and Validation pages, made final improvements based on group feedback, validated all of my assigned pages, and confirmed that they integrated correctly with the rest of the website.</td>
+                        </tr>
+
+                    </tbody>
+
+                </table>
+            </section>
+
+
+        </section>
+        <section>
+            <h2 id="ref">References</h2>
+
+            <ul class="ref">
+
+                <li>
+                    Content / MODULE: (2025). <i>4COSC011C.3 Web Design and Development (IIT Sri Lanka).</i>
+                    (no date). Available from
+                    <a href="https://learning.westminster.ac.uk/ultra/courses/_106071_1/outline" target="_blank">
+                        https://learning.westminster.ac.uk/ultra/courses/_106071_1/outline
+                    </a>
+                    [Accessed 15 July 2026].
+                </li>
+
+                <li>
+                    Programming with Mosh. (2018).
+                    <i>JavaScript Course for Beginners – Your First Step to Web Development.</i>
+                    Available from
+                    <a href="https://www.youtube.com/watch?v=W6NZfCO5SIk" target="_blank">
+                        https://www.youtube.com/watch?v=W6NZfCO5SIk
+                    </a>
+                    [Accessed 10 July 2026].
+                </li>
+
+                <li>
+                    Squoosh. (no date).
+                    Available from
+                    <a href="https://squoosh.app" target="_blank">
+                        https://squoosh.app
+                    </a>
+                    [Accessed 19 July 2026].
+                </li>
+
+                <li>
+                    Unsplash. (no date).
+                    <i>Beautiful Free Images &amp; Pictures | Unsplash.</i>
+                    Available from
+                    <a href="https://unsplash.com/" target="_blank">
+                        https://unsplash.com/
+                    </a>
+                    [Accessed 14 July 2026].
+                </li>
+
+                <li>
+                    W3Schools Online Web Tutorials. (no date).
+                    Available from
+                    <a href="https://www.w3schools.com/" target="_blank">
+                        https://www.w3schools.com/
+                    </a>
+                    [Accessed 13 July 2026].
+                </li>
+
+            </ul>
+        </section>
+
+            <p class="top"><a href="#top">Go top</a></p>
+        
+
+        </main>
+
+
+        <aside>
+            <h3>Core pages developed:</h3>
+            <div class="corepages">
+                <ul>
+                    <li>Splash Screen</li>
+                    <li>Action Impact Simulator</li>
+                    <li>Content page (Renewable Energy)</li>
+                </ul>
+            </div>
+ 
+        </aside>
+    </div>
+
+
+
+<footer class="site-footer">
+    <div class="footer-inner">
+
+      <div class="footer-col">
+        <h3>ClimACT</h3>
+       <p> A student-built website raising awareness of<br> SDG 13 - Climate Action.</p>
+       
+        
+        
+      </div>
+
+    <div class="footer-col">
+        <h3>Pages</h3>
+
+        <ul>
+            <li><a href="../HomePage/home.html">Home</a></li>
+            <li><a href="../AIS/ais.html">Impact Simulator</a></li>
+            <li><a href="../Gallery/gallery.html">Gallery</a></li>
+            <li><a href="../Feedback/feedback.html">Feedback</a></li>
+            <li><a href="../Team/team.html">Team</a></li>
+            <li><a href="../Profile/profile.html">User Profile</a></li>
+            <li><a href="../Sitemap/sitemap.html">Sitemap</a></li>
+        </ul>
+
+    </div>
+
+      <div class="footer-col">
+        <h3>Quick Links</h3>
+         
+        <a href="../PageEditor/pageEditor_ST2.html">Page Editor</a>   
+        <a href="../ValidationPage/validation_ST2.html">Validation Page</a>
+        <a href="../Accessibility/accessibility.html">Accessibility </a>
+
+       <p>P. S. Hettiarachchi (W2212567) - Student 2<br>
+        Splash Screen &amp; Action Impact Simulation Page</p>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <span>© 2026 ClimAct – University of Westminster</span>
+      <span>Built for 4COSC011W | SDG 13 Climate Action</span>
+    </div>
+</footer>
+</body>
+</html>

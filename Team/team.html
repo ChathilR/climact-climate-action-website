@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>ClimACT| Team</title><!--PAGE TITLE-->
+
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="team.css">
+  <!-- Page-specific CSS for the team grid / hover-reveal cards -->
+
+  <style>
+
+    /* team.css */
+
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.75rem;
+  margin-top: 2rem;
+}
+
+.team-card {
+  position: relative;
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  cursor: pointer;
+  transition: box-shadow var(--transition), transform var(--transition);
+}
+
+.team-card:hover,
+.team-card:focus,
+.team-card:focus-within {
+  box-shadow: var(--shadow-hover);
+  transform: translateY(-4px);
+}
+
+/* Visible focus style for keyboard users*/
+.team-card:focus {
+  outline: 3px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+.team-thumb {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  display: block;
+  transition: opacity var(--transition), transform var(--transition), filter var(--transition);
+}
+
+/* Hover effect on the thumbnail */
+.team-card:hover .team-thumb,
+.team-card:focus .team-thumb,
+.team-card:focus-within .team-thumb {
+  opacity: 0.85;
+  transform: scale(1.05);
+  filter: saturate(1.15);
+}
+
+.team-basic {
+  padding: 1rem 1.1rem;
+}
+
+.team-basic h3 {
+  margin-bottom: .2rem;
+}
+
+.team-role {
+  color: var(--color-text-light);
+  font-weight: 600;
+  font-size: .95rem;
+}
+
+/* Expandable details panel */
+.team-details {
+  max-height: 0;
+  overflow: hidden;
+  padding: 0 1.1rem;
+  background-color: var(--color-bg);
+  border-top: 0px solid var(--color-border);
+  transition: max-height var(--transition), padding var(--transition), border-top-width var(--transition);
+}
+
+.team-card:hover .team-details,
+.team-card:focus .team-details,
+.team-card:focus-within .team-details {
+  max-height: 260px;
+  padding: 1rem 1.1rem 1.2rem;
+  border-top-width: 1px;
+}
+
+.team-details p {
+  font-size: .92rem;
+  margin-bottom: .5rem;
+}
+
+.team-details p:last-child {
+  margin-bottom: 0;
+}
+
+.team-details .team-details-label {
+  font-weight: 700;
+  color: var(--color-primary-dark);
+}
+
+</style>
+
+</head>
+<body>
+
+  <span id="top"></span>
+      <a href="#top" class="go-top" aria-label="Go back to top of page">↑</a>
+
+  <header class="site-header">
+    <div class="header-inner">
+
+    <!--WEBSITE BRANDING & LOGO-->
+      <a href="../HomePage/home.html" class="site-identity">
+        <img src="../Assets/Images/logo.png" alt="ClimACT website logo" class="logo">
+        <span class="site-name">ClimACT</span>
+      </a>
+
+      <nav class="main-nav" aria-label="Main navigation">
+        <ul>
+          <li><a href="../HomePage/home.html">Home</a></li>
+            <li><a href="../Gallery/gallery.html">Gallery</a></li>
+            <li><a href="../AIS/ais.html">Impact Simulator</a></li>
+            <li><a href="../Feedback/feedback.html">Feedback</a></li>
+            <li><a href="../Team/team.html" class="active" aria-current="page">Team</a></li>
+            <li><a href="../Profile/profile.html">User Profile</a></li>
+            <li><a href="../Sitemap/sitemap.html">Sitemap</a></li>
+        </ul>
+      </nav>
+            
+    </div>
+  </header>
+
+  <section class="page-hero">
+    <div class="hero-content">
+
+      <h1>Meet the Team</h1>
+      <p>Get to know the four students behind ClimACT and explore the unique contributions each made to building this platform in support of SDG 13: Climate Action.</p>
+    </div>
+
+    </section>
+  <main>
+
+    <div class="main-content">
+      <p>ClimACT was developed by a dedicated team of four students. Explore each team member's profile to discover their role and contributions to the project.</p>
+
+      <!-- MAIN CONTENT AREA -->
+      <section class="team-grid" aria-label="Team members">
+
+        <div class="team-card" tabindex="0" role="group" aria-label="Student 1, Template and Home Page">
+          <img src="../Team/images/student1.png" alt="Placeholder avatar for Student 1" class="team-thumb">
+          <div class="team-basic">
+            <h2>Student 1</h2>
+            <p class="team-role">Template &amp; Home Page</p>
+          </div>
+          <div class="team-details">
+            <p><strong>Michelle Peiris</strong></p>
+            <p>Role: Template &amp; Global CSS Lead, Home Page, Gallery</p>
+            <p>Built the shared HTML template and global stylesheet used across every page, then implemented the Home Page and Gallery on top of it.</p>
+          </div>
+        </div>
+
+        <div class="team-card" tabindex="0" role="group" aria-label="Student 2, Splash Screen and Impact Simulator">
+          <img src="../Team/images/student2.png" alt="Placeholder avatar for Student 2" class="team-thumb">
+          <div class="team-basic">
+            <h2>Student 2</h2>
+            <p class="team-role">Splash Screen &amp; Impact Simulator</p>
+          </div>
+          <div class="team-details">
+            <p><strong>Pesandi Hettiarachchi</strong></p>
+            <p>Role: Splash Screen, Action Impact Simulator</p>
+            <p>Designed the entry splash screen and built the interactive Action Impact Simulator that lets visitors estimate their carbon savings.</p>
+          </div>
+        </div>
+
+        <div class="team-card" tabindex="0" role="group" aria-label="Student 3, Feedback and Team Pages">
+          <img src="../Team/images/student3.png" alt="Placeholder avatar for Student 3" class="team-thumb">
+          <div class="team-basic">
+            <h2>Student 3</h2>
+            <p class="team-role">Feedback &amp; Team Pages</p>
+          </div>
+          <div class="team-details">
+            <p><strong>Kishala Kodithuwakku</strong></p>
+            <p>Role: Feedback &amp; Programme Directory, Team Page</p>
+            <p>Implemented the scrollable programme directory, ratings summary and JavaScript-driven feedback form, plus this Team Page.</p>
+          </div>
+        </div>
+
+        <div class="team-card" tabindex="0" role="group" aria-label="Student 4, User Profile and Sitemap">
+          <img src="../Team/images/student4.png" alt="Placeholder avatar for Student 4" class="team-thumb">
+          <div class="team-basic">
+            <h2>Student 4</h2>
+            <p class="team-role">User Profile &amp; Sitemap</p>
+          </div>
+          <div class="team-details">
+            <p><strong>Chathil Rajarathna</strong></p>
+            <p>Role: User Profile, Sitemap</p>
+            <p>Built the User Profile page and the site-wide Sitemap, helping visitors keep track of and navigate every page on ClimACT.</p>
+          </div>
+        </div>
+
+      </section>
+
+    </div>
+  </main>
+
+  <!-- FOOTER-->
+  <footer class="site-footer">
+    <div class="footer-inner">
+
+      <div class="footer-col">
+        <h3>ClimACT</h3>
+       <p> A student-built website raising awareness of<br> SDG 13 - Climate Action.</p>
+
+      </div>
+
+      <div class="footer-col">
+        <h4>Pages</h4>
+        <ul>
+            <li><a href="../HomePage/home.html">Home</a></li>
+            <li><a href="../AIS/ais.html">Impact Simulator</a></li>
+            <li><a href="../Gallery/gallery.html">Gallery</a></li>
+            <li><a href="../Feedback/feedback.html">Feedback</a></li>
+            <li><a href="../Team/team.html">Team</a></li>
+            <li><a href="../Profile/profile.html">User Profile</a></li>
+            <li><a href="../Sitemap/sitemap.html">Sitemap</a></li>
+      </ul>
+      </div>
+
+      <div class="footer-col">
+        <h3>Quick Links</h3>
+        <!-- Link your relevant Web Pages-->
+
+        <ul>
+            <li><a href="../PageEditor/pageEditor_ST3.html">Page Editor</a></li>
+            <li><a href="../ValidationPage/validation_ST3.html">Validation Page</a></li>
+            <li><a href="../Accessibility/accessibility.html">Accessibility </a></li>
+        </ul>
+        
+        <!-- Add your Student role number, Name, Student ID and the pages you're working on.-->
+       <p>Kishala Kodithuwakku (W2212872) - Student 3<br>
+        Feedback Page &amp; Team Page</p>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <span>© 2026 ClimAct – University of Westminster</span>
+      <span>Built for 4COSC011W | SDG 13 Climate Action</span>
+    </div>
+  </footer>
+
+</body>
+</html>

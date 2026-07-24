@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>ClimACT| Content - Protecting Ecosystems</title><!--PAGE TITLE Eg:Home,Feedback-->
+
+  <link rel="stylesheet" href="../style.css">
+  
+  <style>
+    /* content_ST3.css , Page-specific styling for content_ST3.html. */
+
+/* 1. In-page nav menu: sticks below the header on long pages so
+      readers can jump between sections. */
+.toc-nav {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: 1rem 1.4rem;
+  margin: 1.5rem 0 2rem;
+}
+.toc-nav h2 {
+  font-size: 1.05rem;
+  margin-bottom: 0.5rem;
+}
+.toc-nav ol {
+  margin: 0;
+  padding-left: 1.2rem;
+  columns: 2;
+  column-gap: 2rem;
+}
+.toc-nav a { color: var(--color-secondary); font-weight: 600; }
+.toc-nav a:hover { text-decoration: underline; }
+
+@media (max-width: 600px) {
+  .toc-nav ol { columns: 1; }
+}
+
+/*  Section spacing + hierarchy so headings read clearly. */
+.content-section { margin-bottom: 2.6rem; scroll-margin-top: 90px; }
+.content-section h2 {
+  border-left: 5px solid var(--color-accent);
+  padding-left: 0.7rem;
+}
+.content-section h3 { color: var(--color-secondary); }
+
+/* Content images: responsive sizing, soft border and shadow. */
+.content-img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 1rem auto;
+  border: 4px solid var(--color-surface);
+  outline: 1px solid var(--color-border);
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+}
+figure.content-figure { margin: 1.4rem 0; }
+figcaption {
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--color-text-light);
+  margin-top: 0.4rem;
+}
+
+/*  Two-column figure layout on wider screens for a less
+      text-heavy reading experience. */
+.figure-pair {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.2rem;
+}
+@media (min-width: 700px) {
+  .figure-pair { grid-template-columns: 1fr 1fr; align-items: start; }
+}
+
+/*  Simple styled callout box for the "myths" section. */
+.myth-box {
+  background: #fff7e6;
+  border-left: 5px solid var(--color-accent);
+  padding: 0.9rem 1.1rem;
+  border-radius: 6px;
+  margin-bottom: 1rem;
+}
+.myth-box strong { display: block; margin-bottom: 0.2rem; }
+
+
+  </style>
+
+</head>
+
+<body>
+
+    <span id="top"></span>
+      <a href="#top" class="go-top" aria-label="Go back to top of page">↑</a>
+
+  <header class="site-header">
+    <div class="header-inner">
+
+    <!--WEBSITE BRANDING & LOGO-->
+      <a href="../HomePage/home.html" class="site-identity">
+        <img src="../Assets/Images/logo.png" alt="ClimACT website logo" class="logo">
+        <span class="site-name">ClimACT</span>
+      </a>
+
+      <nav class="main-nav" aria-label="Main navigation">
+        <ul>
+          <li><a href="../HomePage/home.html">Home</a></li>
+            <li><a href="../Gallery/gallery.html">Gallery</a></li>
+            <li><a href="../AIS/ais.html">Impact Simulator</a></li>
+            <li><a href="../Feedback/feedback.html">Feedback</a></li>
+            <li><a href="../Team/team.html">Team</a></li>
+            <li><a href="../Profile/profile.html">User Profile</a></li>
+            <li><a href="../Sitemap/sitemap.html">Sitemap</a></li>
+        </ul>
+      </nav>
+
+    </div>
+  </header>
+
+  <section class="page-hero">
+    <div class="hero-content">
+
+      <h1>Protecting Ecosystems</h1>
+      <p>Why forests and biodiversity are climate infrastructure, not just scenery.</p>
+    </div>
+
+    </section>
+  <main>
+  <div class="contentpage">
+    <div class="main-content">
+
+      <!-- MAIN CONTENT AREA -->
+      <nav class="toc-nav" aria-label="Page contents">
+        <h2>On this page</h2>
+        <ol>
+          <li><a href="#what-is">Forests as Climate Infrastructure</a></li>
+          <li><a href="#regulation">How Forests Regulate the Climate</a></li>
+          <li><a href="#biodiversity">Biodiversity and Resilience</a></li>
+          <li><a href="#deforestation">Deforestation and Its Climate Cost</a></li>
+          <li><a href="#restoration">Restoration and Protection Efforts</a></li>
+          <li><a href="#myths">Common Myths</a></li>
+          <li><a href="#action">What You Can Do</a></li>
+        </ol>
+      </nav>
+
+      <p>Forests and the species living within them rarely get discussed in the same breath as solar panels or sea walls, yet they perform the same basic job: they keep the climate system stable enough for everything else to function. This page looks at why intact ecosystems count as infrastructure, what is lost when they are damaged, and what a realistic, student-scale response looks like.</p>
+
+      <section class="content-section" id="what-is">
+        <h2>Forests as Climate Infrastructure</h2>
+        <p>"Infrastructure" usually brings to mind roads, power grids, or water treatment plants — built systems that keep a society running. Forests, wetlands, and coral reefs do an equivalent job for the climate system itself. They absorb and store carbon, regulate rainfall, buffer coastlines against storms, and moderate local temperatures, all without a single engineer laying a foundation.</p>
+        <p>Unlike concrete infrastructure, ecosystems are self-repairing when left alone, but they are also far more fragile to sustained damage: a flood wall can usually be rebuilt after a storm, while an old-growth forest cleared for farmland can take centuries to recover the same carbon storage and biodiversity, if it recovers at all.</p>
+      </section>
+
+      <section class="content-section" id="regulation">
+        <h2>How Forests Regulate the Climate</h2>
+
+        <figure class="content-figure">
+          <img class="content-img" src="images_ST3/forest.png" alt="Green forest view from above" loading="lazy">
+          <figcaption>Green forest view from above.</figcaption>
+        </figure>
+
+        <h3>Carbon Storage</h3>
+        <p>Trees absorb carbon dioxide as they grow and lock it away in trunks, roots, and soil for decades or centuries. Tropical rainforests alone are estimated to store roughly a quarter of all carbon held in land ecosystems worldwide, making them one of the largest active carbon reservoirs outside the ocean.</p>
+
+        <h3>Water Cycling</h3>
+        <p>Large forests, particularly tropical ones, generate a significant share of their own rainfall by releasing water vapour from their leaves. Remove enough forest cover and rainfall patterns shift not just locally, but for entire regions downwind — a process already observed at the edges of the Amazon basin.</p>
+
+        <h3>Local Cooling</h3>
+        <p>Tree cover lowers surrounding air temperature through shade and evapotranspiration, which is why urban tree-planting is now treated as a heatwave-adaptation measure in its own right, not just a landscaping choice.</p>
+      </section>
+
+      <section class="content-section" id="biodiversity">
+        <h2>Biodiversity and Resilience</h2>
+
+        <figure class="content-figure">
+          <img class="content-img" src="images_ST3/wildlife.png" alt="Wildlife and undergrowth on a forest floor, showing plant and insect diversity" loading="lazy">
+          <figcaption> forest floor macro shot showing varied plant, fungus, or insect life, illustrating diversity.</figcaption>
+        </figure>
+
+        <p>A biodiverse ecosystem is generally a more resilient one. A forest with many species of tree, insect, and fungus can usually absorb a disease outbreak, a drought year, or a wildfire and recover its function, because different species fail and recover on different schedules. A monoculture plantation, by contrast, can lose most of its trees to a single pest or disease in one season.</p>
+        <p>This matters for climate adaptation specifically: the same biodiversity that helps a forest survive a bad year is what keeps its carbon storage and water-cycling functions intact when the climate becomes less predictable, which is exactly the trend most regions are now experiencing.</p>
+      </section>
+
+      <section class="content-section" id="deforestation">
+        <h2>Deforestation and Its Climate Cost</h2>
+
+        <figure class="content-figure">
+          <img class="content-img" src="images_ST3/land.png" alt="Cleared land next to standing forest(deforestation)" loading="lazy">
+          <figcaption>Clear edge between cleared land and standing forest, to illustrate the contrast.</figcaption>
+        </figure>
+
+        <p>When forest is cleared, two things happen to the climate at once. First, the carbon stored in the trees and soil is released, mostly through burning or decomposition. Second, the ecosystem's ongoing carbon absorption stops, so the loss compounds every year the land stays cleared. Combined, land-use change and forestry are estimated to account for roughly a tenth of global greenhouse gas emissions.</p>
+        <p>The knock-on effects extend beyond carbon: cleared land is more prone to flooding and landslides without root systems to hold soil in place, and local communities that depended on the forest for water regulation or flood buffering often feel the adaptation cost first, well before the global carbon accounting catches up.</p>
+      </section>
+
+      <section class="content-section" id="restoration">
+        <h2>Restoration and Protection Efforts</h2>
+
+        <figure class="content-figure">
+          <img class="content-img" src="images_ST3/planting.png" alt="Volunteers planting young trees as part of a restoration project" loading="lazy">
+          <figcaption>A restoration or replanting project.</figcaption>
+        </figure>
+
+        <div class="figure-pair">
+          <div>
+            <h3>Protected Areas</h3>
+            <p>National parks and legally protected reserves remain the most effective tool for halting deforestation where they are properly enforced, since they remove the immediate economic pressure to convert land to farming or logging.</p>
+          </div>
+          <div>
+            <h3>Community-Led Restoration</h3>
+            <p>Locally led replanting and agroforestry projects tend to have higher long-term survival rates than large top-down planting schemes, because nearby communities have a direct stake in the land continuing to thrive.</p>
+          </div>
+        </div>
+        <p>None of this restoration work is instant. A newly planted forest can take twenty to thirty years before it stores carbon or supports biodiversity anywhere near the level of the mature forest it replaced, which is why protecting existing forest is consistently rated as more effective than restoration alone.</p>
+      </section>
+
+      <section class="content-section" id="myths">
+        <h2>Common Myths</h2>
+        <div class="myth-box">
+          <strong>"Planting a tree instantly offsets my emissions."</strong>
+          A newly planted sapling stores very little carbon in its first years and takes decades to reach meaningful storage — tree planting is a long-term investment, not an instant offset.
+        </div>
+        <div class="myth-box">
+          <strong>"Deforestation only matters for the country where it happens."</strong>
+          Large-scale forest loss shifts rainfall patterns and carbon levels regionally and globally, meaning the climate effects are not contained by national borders.
+        </div>
+        <div class="myth-box">
+          <strong>"Any tree cover is equally good for the climate."</strong>
+          A biodiverse, mixed-species forest generally stores more carbon and recovers from disturbance far better than a single-species plantation of the same size.
+        </div>
+      </section>
+
+      <section class="content-section" id="action">
+        <h2>What You Can Do</h2>
+        <p>Protecting existing ecosystems is largely a policy and land-use issue, but individual choices still add up, particularly around the products that drive deforestation demand.</p>
+        <ul>
+          <li>Check for deforestation-free or sustainably certified labels on wood, paper, and palm-oil products before buying.</li>
+          <li>Support or volunteer with local tree-planting and habitat restoration groups, such as the programmes listed on our <a href="../Feedback/feedback.html" style="color: blue; text-decoration: underline;">Feedback page</a>.</li>
+          <li>Reduce food waste, since agricultural expansion for food production is one of the leading drivers of tropical deforestation worldwide.</li>
+          <li>Talk about it: public pressure on companies and policymakers is one of the few levers that has reliably slowed deforestation rates in specific regions.</li>
+        </ul>
+      </section>
+
+    </div>
+  </div>
+  </main>
+
+  <!-- FOOTER-->
+  <footer class="site-footer">
+    <div class="footer-inner">
+
+      <div class="footer-col">
+        <h3>ClimACT</h3>
+       <p> A student-built website raising awareness of<br> SDG 13 - Climate Action.</p>
+
+      </div>
+
+      <div class="footer-col">
+        <h4>Pages</h4>
+        <ul>
+            <li><a href="../HomePage/home.html">Home</a></li>
+            <li><a href="../AIS/ais.html">Impact Simulator</a></li>
+            <li><a href="../Gallery/gallery.html">Gallery</a></li>
+            <li><a href="../Feedback/feedback.html">Feedback</a></li>
+            <li><a href="../Team/team.html">Team</a></li>
+            <li><a href="../Profile/profile.html">User Profile</a></li>
+            <li><a href="../Sitemap/sitemap.html">Sitemap</a></li>
+      </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <!-- Link your relevant Web Pages-->
+         <ul>
+            <li><a href="../PageEditor/pageEditor_ST3.html">Page Editor</a></li>   
+            <li><a href="../Validationpage/validation_ST3.html">Validation Page</a></li>
+            <li><a href="../Accessibility/accessibility.html">Accessibility </a></li>
+
+        </ul>
+        <!-- Add your Student role number, Name, Student ID and the pages you're working on.-->
+       <p>NAME (W1234569) - Student 3<br>
+        Feedback Page &amp; Team Page</p>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <span>© 2026 ClimAct – University of Westminster</span>
+      <span>Built for 4COSC011W | SDG 13 Climate Action</span>
+    </div>
+  </footer>
+
+</body>
+</html>

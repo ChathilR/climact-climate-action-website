@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>ClimACT| Feedback</title><!--PAGE TITLE-->
+
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="feedback.css">
+  <!-- Page-specific CSS for the programme rails, reviews and form -->
+   
+  <style>
+    /* feedback.css */
+
+.directory-section,
+.reviews-section,
+.feedback-form-section {
+  margin: 3rem 0;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--color-border);
+}
+
+.directory-section:first-of-type {
+  border-top: none;
+  padding-top: 0;
+}
+
+/* --- Section heading row + sort control --- */
+.section-heading-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.sort-control {
+  display: flex;
+  align-items: center;
+  gap: .6rem;
+}
+
+.sort-control label {
+  font-weight: 600;
+  font-family: var(--font-heading);
+}
+
+.sort-control select {
+  padding: .5rem .8rem;
+  border-radius: var(--radius);
+  border: 1px solid var(--color-border);
+  background-color: var(--color-surface);
+  font-family: var(--font-body);
+  font-size: 1rem;
+}
+
+/* --- Scrollable programme rail --- */
+.programme-scroll {
+  overflow-x: auto;
+  padding: .5rem .25rem 1.25rem;
+  scroll-snap-type: x mandatory;
+}
+
+.programme-scroll::-webkit-scrollbar {
+  height: 10px;
+}
+
+.programme-scroll::-webkit-scrollbar-thumb {
+  background-color: var(--color-secondary);
+  border-radius: 10px;
+}
+
+/* Override the shared .card-grid (CSS Grid) so the programme cards
+   line up in a single scrollable row instead of wrapping */
+.programme-scroll .programme-grid {
+  display: flex;
+  grid-template-columns: none;
+  width: max-content;
+  gap: 1.25rem;
+  margin: 0;
+}
+
+.programme-card {
+  flex: 0 0 260px;
+  scroll-snap-align: start;
+  display: flex;
+  flex-direction: column;
+}
+
+/* These are small icons, not photos, so they get their own sizing
+   rather than the photographic crop used elsewhere on the site */
+.programme-icon {
+  width: 64px;
+  height: 64px;
+  object-fit: contain;
+  margin: 1.5rem auto 0;
+}
+
+.programme-card .card-body {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  text-align: center;
+}
+
+.programme-card p {
+  flex-grow: 1;
+  font-size: .95rem;
+  color: var(--color-text-light);
+}
+
+.programme-card .btn {
+  align-self: center;
+  margin-top: .5rem;
+}
+
+/* Distinct hover feedback beyond the shared .btn hover */
+.programme-card .btn:hover {
+  background-color: var(--color-accent);
+  color: var(--color-text);
+  transform: scale(1.06);
+}
+
+/* --- Ratings summary --- */
+.rating-summary {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.rating-score {
+  font-family: var(--font-heading);
+  font-size: 3rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  line-height: 1;
+}
+
+.rating-summary-text p {
+  margin-bottom: .2rem;
+}
+
+.rating-label {
+  font-weight: 700;
+  color: var(--color-primary-dark);
+}
+
+/* --- Review cards --- */
+.review-grid {
+  gap: 1.25rem;
+}
+
+.review-rating {
+  display: inline-block;
+  background-color: var(--color-primary);
+  color: #fff;
+  font-weight: 700;
+  border-radius: 6px;
+  padding: .15rem .6rem;
+  margin-top: .6rem;
+  font-family: var(--font-heading);
+}
+
+.review-meta {
+  font-size: .85rem;
+  color: var(--color-text-light);
+  margin-top: .6rem;
+  margin-bottom: 0;
+}
+
+.review-card a {
+  color: var(--color-secondary);
+  font-weight: 600;
+}
+
+.review-card a:hover {
+  text-decoration: underline;
+}
+
+/* --- Feedback form --- */
+.feedback-form-section form {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 1.75rem;
+  display: block;
+}
+
+.feedback-form-section fieldset {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: 1.2rem;
+  margin-bottom: 1.5rem;
+}
+
+.feedback-form-section legend {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  color: var(--color-primary);
+  padding: 0 .5rem;
+  font-size: 1.1rem;
+}
+
+.form-row {
+  margin-bottom: 1.1rem;
+  display: flex;
+  flex-direction: column;
+  gap: .35rem;
+}
+
+.form-row label {
+  font-weight: 600;
+  font-size: .95rem;
+}
+
+.form-row input,
+.form-row select,
+.form-row textarea {
+  padding: .6rem .7rem;
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  width: 100%;
+}
+
+.form-row input:focus,
+.form-row select:focus,
+.form-row textarea:focus {
+  outline: 2px solid var(--color-secondary);
+  outline-offset: 1px;
+}
+
+.char-counter {
+  font-size: .8rem;
+  color: var(--color-text-light);
+  text-align: right;
+  margin: .3rem 0 0;
+}
+
+.error-msg {
+  display: block;
+  color: #b3261e;
+  font-size: .85rem;
+  min-height: 1.1em;
+}
+
+.form-row.has-error input,
+.form-row.has-error select,
+.form-row.has-error textarea {
+  border-color: #b3261e;
+  background-color: #fdecea;
+}
+
+/* Confirmation message only takes up space / becomes visible once
+   the script fills it in, avoiding the need for a toggled class */
+.confirmation-msg {
+  margin-top: 1rem;
+  padding: 0;
+  border-radius: var(--radius);
+  font-weight: 600;
+  color: var(--color-primary-dark);
+}
+
+.confirmation-msg:not(:empty) {
+  padding: .9rem 1.1rem;
+  background-color: #e6f4ea;
+  border: 1px solid var(--color-primary);
+}
+
+</style>
+
+</head>
+<body>
+
+  <span id="top"></span>
+      <a href="#top" class="go-top" aria-label="Go back to top of page">↑</a>
+
+  <header class="site-header">
+    <div class="header-inner">
+
+    <!--WEBSITE BRANDING & LOGO-->
+      <a href="../HomePage/home.html" class="site-identity">
+        <img src="../Assets/Images/logo.png" alt="ClimACT website logo" class="logo">
+        <span class="site-name">ClimACT</span>
+      </a>
+
+      <nav class="main-nav" aria-label="Main navigation">
+        <ul>
+          <li><a href="../HomePage/home.html">Home</a></li>
+            <li><a href="../Gallery/gallery.html">Gallery</a></li>
+            <li><a href="../AIS/ais.html">Impact Simulator</a></li>
+            <li><a href="../Feedback/feedback.html" class="active" aria-current="page">Feedback</a></li>
+            <li><a href="../Team/team.html">Team</a></li>
+            <li><a href="../Profile/profile.html">User Profile</a></li>
+            <li><a href="../Sitemap/sitemap.html">Sitemap</a></li>
+        </ul>
+      </nav>
+
+    </div>
+  </header>
+
+  <section class="page-hero">
+    <div class="hero-content">
+
+      <h1>Explore Programmes &amp; Share Your Feedback</h1>
+      <p>Find opportunities to take action and let us know about your experience.</p>
+    </div>
+
+    </section>
+  <main>
+
+    <div class="main-content">
+
+      <!-- MAIN CONTENT AREA -->
+
+      <!-- ============ 1. SCROLLABLE PROGRAMME DIRECTORY ============ -->
+      <section class="directory-section" aria-labelledby="directory-heading">
+        <div class="section-heading-row">
+          <h2 id="directory-heading">Climate Action Programmes</h2>
+
+          <div class="sort-control">
+            <label for="sortPrograms">Sort by</label>
+            <select id="sortPrograms" name="sortPrograms">
+              <option value="popular">Most popular</option>
+              <option value="nearest">Nearest</option>
+              <option value="friendly">Student-friendly</option>
+              <option value="new">Newest</option>
+            </select>
+          </div>
+        </div>
+
+        <p>Explore a range of sustainability initiatives designed to help students make a real environmental impact. Whether you're interested in conservation, renewable energy, community outreach, or reducing waste, there's a programme for everyone. Join a project, learn new skills, and become part of a growing community committed to a greener future.</p>
+
+        <div class="programme-scroll" tabindex="0">
+          <div class="card-grid programme-grid">
+
+            <article class="card programme-card">
+              <img src="../Feedback/images/tree.png" alt="The campus tree-planting programme" class="programme-icon">
+              <div class="card-body">
+                <h3>Campus Tree Planting</h3>
+                <p>Help make our campus greener by planting native trees that absorb carbon, improve air quality, and support local biodiversity. Join fellow students in creating a healthier environment for future generations.</p>
+                <a href="#" class="btn">Join</a>
+              </div>
+            </article>
+
+            <article class="card programme-card">
+              <img src="../Feedback/images/riverclean.png" alt="The river clean-up programme" class="programme-icon">
+              <div class="card-body">
+                <h3>River Clean-Up Crew</h3>
+                <p>Take part in restoring our local waterways by removing litter, monitoring water quality, and protecting aquatic ecosystems alongside the Environmental Society.</p>
+                <a href="#" class="btn">Get Involved</a>
+              </div>
+            </article>
+
+            <article class="card programme-card">
+              <img src="../Feedback/images/waste.png" alt="The zero-waste challenge" class="programme-icon">
+              <div class="card-body">
+                <h3>Zero-Waste Challenge</h3>
+                <p>Challenge yourself to reduce household waste over four weeks with practical sustainability tips, weekly goals, and a shared progress tracker.</p>
+                <a href="#" class="btn">Learn More</a>
+              </div>
+            </article>
+
+            <article class="card programme-card">
+              <img src="../Feedback/images/bicycle.png" alt="The sustainable commute campaign" class="programme-icon">
+              <div class="card-body">
+                <h3>Sustainable Commute Week</h3>
+                <p>Choose walking, cycling, carpooling, or public transport instead of driving. Track your carbon savings and inspire others to adopt greener travel habits.</p>
+                <a href="#" class="btn">Join</a>
+              </div>
+            </article>
+
+            <article class="card programme-card">
+              <img src="../Feedback/images/sun.png" alt="The renewable energy workshop" class="programme-icon">
+              <div class="card-body">
+                <h3>Renewable Energy Workshop</h3>
+                <p>Discover the fundamentals of renewable energy through an interactive workshop featuring hands-on solar and wind power projects designed for beginners.</p>
+                <a href="#" class="btn">Learn More</a>
+              </div>
+            </article>
+
+            <article class="card programme-card">
+              <img src="../Feedback/images/volunteer.png" alt="The community outreach programme" class="programme-icon">
+              <div class="card-body">
+                <h3>Community Climate Outreach</h3>
+                <p>Volunteer with our outreach team to visit local schools and deliver engaging, age-appropriate climate education activities that inspire the next generation.</p>
+                <a href="#" class="btn">Get Involved</a>
+              </div>
+            </article>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ 2. RATINGS & REVIEWS SUMMARY ============ -->
+      <section class="reviews-section" aria-labelledby="reviews-heading">
+        <h2 id="reviews-heading">Ratings &amp; Reviews</h2>
+
+        <div class="rating-summary">
+          <div class="rating-score" aria-hidden="true">8.6<span>/10</span></div>
+          <div class="rating-summary-text">
+            <p class="rating-label">Excellent</p>
+            <p>Based on <strong>142</strong> student reviews of ClimACT programmes</p>
+          </div>
+        </div>
+
+        <div class="card-grid review-grid">
+
+          <article class="card review-card">
+            <div class="card-body">
+              <h3>Genuinely rewarding experience</h3>
+              <p>The tree planting day was well organised and the team made it easy for first-timers to get involved from the start.
+                <a href="#">See more</a>
+              </p>
+              <p class="review-meta">Joshen &middot; 3 June 2026</p>
+              <p class="review-rating">9/10</p>
+            </div>
+          </article>
+
+          <article class="card review-card">
+            <div class="card-body">
+              <h3>Great way to meet like-minded people</h3>
+              <p>I joined the sustainable commute week and ended up cycling to campus every day since. Highly recommend it.
+                <a href="#">See more</a>
+              </p>
+              <p class="review-meta">Tharusha M. &middot; 28 May 2026</p>
+              <p class="review-rating">8/10</p>
+            </div>
+          </article>
+
+          <article class="card review-card">
+            <div class="card-body">
+              <h3>Could use clearer sign-up times</h3>
+              <p>The river clean-up was a lot of fun, though the meeting time changed twice without much notice.
+                <a href="#">See more</a>
+              </p>
+              <p class="review-meta">S.Priya &middot; 14 May 2026</p>
+              <p class="review-rating">7/10</p>
+            </div>
+          </article>
+
+        </div>
+      </section>
+
+      <!-- ============ 3. FEEDBACK FORM ============ -->
+      <section class="feedback-form-section" aria-labelledby="form-heading">
+        <h2 id="form-heading">Share Your Feedback</h2>
+        <p>Help us improve ClimACT by sharing your experience with our programmes or suggesting new climate initiatives. Your feedback helps us create better opportunities for our community.</p>
+
+        <form id="feedbackForm" novalidate>
+
+          <fieldset>
+            <legend>Personal Details</legend>
+
+            <div class="form-row">
+              <label for="fullName">Full Name</label>
+              <input type="text" id="fullName" name="fullName" required>
+              <span class="error-msg" id="fullNameError" role="alert"></span>
+            </div>
+
+            <div class="form-row">
+              <label for="email">Email Address</label>
+              <input type="email" id="email" name="email" required>
+              <span class="error-msg" id="emailError" role="alert"></span>
+            </div>
+
+            <div class="form-row">
+              <label for="phone">Telephone Number</label>
+              <input type="tel" id="phone" name="phone" pattern="^[0-9 +()-]{7,20}$" required>
+              <span class="error-msg" id="phoneError" role="alert"></span>
+            </div>
+
+            <div class="form-row">
+              <label for="address">Address</label>
+              <textarea id="address" name="address" rows="3" required></textarea>
+              <span class="error-msg" id="addressError" role="alert"></span>
+            </div>
+          </fieldset>
+
+          <fieldset>
+            <legend>Feedback Details</legend>
+
+            <div class="form-row">
+              <label for="programme">Which programme is this about?</label>
+              <select id="programme" name="programme" required>
+                <option value="">-- Select a programme --</option>
+                <option value="tree">Campus Tree Planting</option>
+                <option value="river">River Clean-Up Crew</option>
+                <option value="waste">Zero-Waste Challenge</option>
+                <option value="commute">Sustainable Commute Week</option>
+                <option value="energy">Renewable Energy Workshop</option>
+                <option value="outreach">Community Climate Outreach</option>
+                <option value="other">Other / general feedback</option>
+              </select>
+              <span class="error-msg" id="programmeError" role="alert"></span>
+            </div>
+
+            <div class="form-row">
+              <label for="visitDate">Date you took part</label>
+              <input type="date" id="visitDate" name="visitDate" required>
+              <span class="error-msg" id="visitDateError" role="alert"></span>
+            </div>
+
+            <div class="form-row">
+              <label for="preferredContact">Preferred follow-up date &amp; time</label>
+              <input type="datetime-local" id="preferredContact" name="preferredContact">
+            </div>
+
+            <div class="form-row">
+              <label for="message">Comment / Message</label>
+              <textarea id="message" name="message" rows="5" maxlength="300" required></textarea>
+              <p class="char-counter" id="charCounter" aria-live="polite">300 characters remaining</p>
+              <span class="error-msg" id="messageError" role="alert"></span>
+            </div>
+          </fieldset>
+
+          <button type="submit" class="btn btn-accent">Submit Feedback</button>
+
+          <p id="confirmationMsg" class="confirmation-msg" role="status" aria-live="polite"></p>
+        </form>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- FOOTER-->
+  <footer class="site-footer">
+    <div class="footer-inner">
+
+      <div class="footer-col">
+        <h3>ClimACT</h3>
+       <p> A student-built website raising awareness of<br> SDG 13 - Climate Action.</p>
+
+      </div>
+
+      <div class="footer-col">
+        <h4>Pages</h4>
+        <ul>
+            <li><a href="../HomePage/home.html">Home</a></li>
+            <li><a href="../AIS/ais.html">Impact Simulator</a></li>
+            <li><a href="../Gallery/gallery.html">Gallery</a></li>
+            <li><a href="../Feedback/feedback.html">Feedback</a></li>
+            <li><a href="../Team/team.html">Team</a></li>
+            <li><a href="../Profile/profile.html">User Profile</a></li>
+            <li><a href="../Sitemap/sitemap.html">Sitemap</a></li>
+      </ul>
+      </div>
+
+      <div class="footer-col">
+        <h3>Quick Links</h3>
+        <!-- Link your relevant Web Pages-->
+         <ul>
+            <li><a href="../PageEditor/pageEditor_ST3.html">Page Editor</a></li>
+            <li><a href="../ValidationPage/validation_ST3.html">Validation Page</a></li>
+            <li><a href="../Accessibility/accessibility.html">Accessibility </a></li>
+        </ul>
+
+        
+        <!-- Add your Student role number, Name, Student ID and the pages you're working on.-->
+       <p>Kishala Kodithuwakku (W2212872) - Student 3<br>
+        Feedback Page &amp; Team Page</p>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <span>© 2026 ClimAct – University of Westminster</span>
+      <span>Built for 4COSC011W | SDG 13 Climate Action</span>
+    </div>
+  </footer>
+
+
+  <!-- ============================================================
+       feedback.js combined inline via a <script> tag.
+       
+        Live character counter for the message textarea.
+        Custom, JavaScript-enhanced form validation with inline
+        error messages next to each field.
+        A JavaScript submission confirmation message.
+       ============================================================ -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+
+      /* ---------- 1. Live character counter ---------- */
+      var messageField = document.getElementById('message');
+      var counterEl = document.getElementById('charCounter');
+
+      function updateCounter() {
+        var max = parseInt(messageField.getAttribute('maxlength'), 10);
+        var remaining = max - messageField.value.length;
+        counterEl.textContent = remaining + ' characters remaining';
+      }
+
+      if (messageField && counterEl) {
+        updateCounter(); // initialise on load
+        messageField.addEventListener('input', updateCounter);
+      }
+
+      /* ---------- 2 & 3. Validation + confirmation ---------- */
+      var form = document.getElementById('feedbackForm');
+      var confirmationBox = document.getElementById('confirmationMsg');
+
+      // Show/clear an inline error for a given field, and flag its
+      // containing .form-row so the CSS can highlight it
+      function setError(fieldId, message) {
+        var field = document.getElementById(fieldId);
+        var errorEl = document.getElementById(fieldId + 'Error');
+        var rowEl = field ? field.closest('.form-row') : null;
+        if (errorEl) errorEl.textContent = message || '';
+        if (rowEl) {
+          if (message) {
+            rowEl.classList.add('has-error');
+          } else {
+            rowEl.classList.remove('has-error');
+          }
+        }
+      }
+
+      function isValidEmail(value) {
+        return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
+      }
+
+      function isValidPhone(value) {
+        var digitsOnly = value.replace(/[^0-9]/g, '');
+        return /^[0-9+\-\s()]+$/.test(value) && digitsOnly.length >= 7 && digitsOnly.length <= 20;
+      }
+
+      if (form) {
+        form.addEventListener('submit', function (event) {
+          event.preventDefault(); // this demo form does not submit to a server
+          confirmationBox.textContent = '';
+
+          var valid = true;
+
+          var fullName = document.getElementById('fullName');
+          if (!fullName.value.trim()) {
+            setError('fullName', 'Please enter your full name.');
+            valid = false;
+          } else {
+            setError('fullName', '');
+          }
+
+          var email = document.getElementById('email');
+          if (!email.value.trim()) {
+            setError('email', 'Please enter your email address.');
+            valid = false;
+          } else if (!isValidEmail(email.value.trim())) {
+            setError('email', 'Please enter a valid email address, e.g. name@example.com.');
+            valid = false;
+          } else {
+            setError('email', '');
+          }
+
+          var phone = document.getElementById('phone');
+          if (!phone.value.trim()) {
+            setError('phone', 'Please enter a telephone number.');
+            valid = false;
+          } else if (!isValidPhone(phone.value.trim())) {
+            setError('phone', 'Please enter a valid telephone number (7-20 characters, digits, spaces, + - ( ) only).');
+            valid = false;
+          } else {
+            setError('phone', '');
+          }
+
+          var address = document.getElementById('address');
+          if (!address.value.trim()) {
+            setError('address', 'Please enter your address.');
+            valid = false;
+          } else {
+            setError('address', '');
+          }
+
+          var programme = document.getElementById('programme');
+          if (!programme.value) {
+            setError('programme', 'Please choose which programme this is about.');
+            valid = false;
+          } else {
+            setError('programme', '');
+          }
+
+          var visitDate = document.getElementById('visitDate');
+          if (!visitDate.value) {
+            setError('visitDate', 'Please choose the date you took part.');
+            valid = false;
+          } else {
+            setError('visitDate', '');
+          }
+
+          if (!messageField.value.trim()) {
+            setError('message', 'Please enter a comment before submitting.');
+            valid = false;
+          } else {
+            setError('message', '');
+          }
+
+          if (valid) {
+            confirmationBox.textContent = 'Thank you for your feedback, ' + fullName.value.trim() + '! We have received your submission.';
+            form.reset();
+            updateCounter();
+          } else {
+            // Move focus to the first invalid field for accessibility
+            var firstError = form.querySelector('.has-error input, .has-error select, .has-error textarea');
+            if (firstError) firstError.focus();
+          }
+        });
+      }
+    });
+  </script>
+</body>
+</html>

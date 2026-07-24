@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  
+  <title>ClimACT| Renewable Energy</title><!--PAGE TITLE Eg:Home,Feedback-->
+
+  
+  <link rel="stylesheet" href="../style.css">
+ 
+
+ <style>
+
+.toc-nav {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: 1rem 1.4rem;
+  margin: 1.5rem 0 2rem;
+}
+.toc-nav h2 {
+  font-size: 1.05rem;
+  margin-bottom: 0.5rem;
+}
+.toc-nav ol {
+  margin: 0;
+  padding-left: 1.2rem;
+  columns: 2;
+  column-gap: 2rem;
+}
+.toc-nav a { color: var(--color-secondary); font-weight: 600; }
+.toc-nav a:hover { text-decoration: underline; }
+
+
+/* 2. Section spacing + hierarchy so headings read clearly. */
+.content-section { margin-bottom: 2.6rem; scroll-margin-top: 90px; }
+.content-section h2 {
+  border-left: 5px solid var(--color-accent);
+  padding-left: 0.7rem;
+}
+.content-section h3 { color: var(--color-secondary); }
+
+/* 3. Content images: responsive sizing, soft border and shadow. */
+.content-img {
+  width: 632px;
+  height: 316px;
+  height: auto;
+  display: block;
+  margin: 1rem auto;
+  border: 4px solid var(--color-surface);
+  outline: 1px solid var(--color-border);
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+}
+figure.content-figure { margin: 1.4rem 0; }
+figcaption {
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--color-text-light);
+  margin-top: 0.4rem;
+}
+
+/* 4. Two-column figure layout on wider screens for a less
+      text-heavy reading experience. */
+.figure-pair {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.2rem;
+}
+
+
+/* 5. Simple styled callout box for the "myths" section. */
+.myth-box {
+  background: #fff7e6;
+  border-left: 5px solid var(--color-accent);
+  padding: 0.9rem 1.1rem;
+  border-radius: 6px;
+  margin-bottom: 1rem;
+}
+.myth-box strong { display: block; margin-bottom: 0.2rem; }
+
+/* 6. "Go to Top" button — fixed position, HTML/CSS only, no JS. */
+.go-top {
+  position: fixed;
+  right: 1.2rem;
+  bottom: 1.4rem;
+  background-color: var(--color-primary);
+  color: #ffffff;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+  box-shadow: var(--shadow-hover);
+  z-index: 500;
+  transition: background-color var(--transition), transform var(--transition);
+}
+.go-top:hover, .go-top:focus-visible {
+  background-color: var(--color-primary-dark);
+  transform: translateY(-3px);
+}
+    
+  </style>
+
+</head>
+<body >
+  <span id="top"></span>
+  <a href="#top" class="go-top" aria-label="Go back to top of page">↑</a>
+
+  <header class="site-header">
+    <div class="header-inner">
+
+    
+    <!--WEBSITE BRANDING & LOGO-->
+      <a href="../HomePage/home.html" class="site-identity">
+        <img src="../Assets/Images/logo.png" alt="ClimACT website logo" class="logo">
+        <span class="site-name">ClimACT</span>
+      </a>
+
+      
+      <nav class="main-nav" aria-label="Main navigation">
+        <ul>
+          <li><a href="../HomePage/home.html">Home</a></li>
+            <li><a href="../Gallery/gallery.html">Gallery</a></li>
+            <li><a href="../AIS/ais.html">Impact Simulator</a></li>
+            <li><a href="../Feedback/feedback.html">Feedback</a></li>
+            <li><a href="../Team/team.html">Team</a></li>
+            <li><a href="../Profile/profile.html">User Profile</a></li>
+            <li><a href="../Sitemap/sitemap.html">Sitemap</a></li>
+        </ul>
+      </nav>
+
+    </div>
+  </header>
+
+  <section class="page-hero">
+    <div class="hero-content">
+
+      <h1>Understanding Renewable Energy</h1>
+      <p>Small changes begin with awareness, and understanding renewable energy is where that journey starts.</p>
+    </div>
+      
+    </section>
+  <main>
+  <div class="contentpage">
+
+    <div class="main-content">
+      
+
+      <!-- MAIN CONTENT AREA -->
+       <nav class="toc-nav" aria-label="Page contents">
+        <h2>On this page</h2>
+        <ol>
+          <li><a href="#what-is">What Is Renewable Energy?</a></li>
+          <li><a href="#how-measured">How It's Generated</a></li>
+          <li><a href="#transport">Solar Energy</a></li>
+          <li><a href="#energy">Wind Energy</a></li>
+          <li><a href="#food">Hydropower</a></li>
+          <li><a href="#waste">Geothermal &amp; Other Sources</a></li>
+          <li><a href="#myths">Common Myths</a></li>
+          <li><a href="#reduce">Switching to Renewable Energy</a></li>
+        </ol>
+      </nav>
+ 
+      <p>"Renewable energy" is a term often used in discussions about climate change, but many people are unsure what it really means or how it can be adopted in everyday life. This page explains the main sources of renewable energy and highlights practical, effective ways to make use of them through simple, sustainable choices.</p>
+      <section class="content-section" id="what-is">
+        <h2>What Is Renewable Energy?</h2>
+        <p>Renewable energy is energy generated from natural sources that replenish themselves faster than they are consumed. These sources include sunlight, wind, water, and heat from within the earth, and are commonly measured in kilowatt-hours (kWh) or megawatts (MW) of generating capacity. Renewable energy helps us understand how power can be produced without depleting finite resources or releasing large amounts of greenhouse gases.</p>
+        <p>Renewable energy systems can be used at both large and small scales. Large-scale generation comes from activities such as utility solar farms or offshore wind arrays, while small-scale generation is produced through rooftop panels, micro-hydro systems, and household-level installations that individuals and communities use every day. Understanding these sources is the first step toward making more sustainable choices and reducing our reliance on fossil fuels.</p>
+      </section>
+ 
+      <section class="content-section" id="how-measured">
+        <h2>How It's Generated</h2>
+        <h3>The three main pathways</h3>
+        <p>Renewable electricity generation is grouped into three broad categories. <strong>Solar</strong> converts sunlight directly into electricity or heat, <strong>Wind</strong> captures moving air through turbines, and <strong>Hydro &amp; other sources</strong> covers water, geothermal heat, and biomass that support daily power supply. Wind is often the fastest-growing part of a country's renewable mix.</p>
+        <h3>Why national averages mislead</h3>
+        <p>National average renewable energy figures are useful for comparing countries, but they do not reflect the wide differences between regions and households. An area with strong sun, wind, or water resources and supportive infrastructure can generate a much higher share of clean power than an area that still relies heavily on fossil fuels. This is why local investment matters, and why understanding your own energy sources is an important step towards reducing climate change.</p>
+      </section>
+ 
+      <section class="content-section" id="transport">
+        <h2>Solar Energy</h2>
+        <figure class="content-figure">
+          <img class="content-img" src="images_ST2/solarpanels.png" alt="Rooftop solar panels" loading="lazy">
+          <figcaption>Rooftop and community solar installations turn sunlight into usable electricity.</figcaption>
+        </figure>
+        <p>Solar power is one of the fastest-growing sources of renewable electricity worldwide. Photovoltaic panels convert sunlight directly into electricity, while solar thermal systems use the sun's heat for hot water or space heating. Choosing solar power where possible can reduce emissions immediately and make a meaningful contribution to protecting the environment.</p>
+        <ul>
+          <li>Rooftop solar panels can offset a household's electricity use and, in some cases, feed surplus power back into the grid.</li>
+          <li>Community solar schemes generally produce far lower lifetime emissions per unit of electricity than fossil-fuel power stations.</li>
+          <li>Sharing or leasing solar capacity with neighbours reduces upfront cost, increases uptake, and helps decrease reliance on the wider grid.</li>
+        </ul>
+      </section>
+ 
+      <section class="content-section" id="energy">
+        <h2>Wind Energy</h2>
+        <figure class="content-figure">
+          <img class="content-img" src="images_ST2/windturbines.png" alt="Wind turbines generating electricity" loading="lazy">
+          <figcaption>Wherever wind speeds are strong and steady, turbines can generate power around the clock.</figcaption>
+        </figure>
+        <p>Wind used for electricity generation contributes significantly to a clean power supply. The environmental impact depends on where the turbines are sited, with well-placed onshore and offshore farms producing far fewer emissions than fossil fuels over their lifetime. Simple actions such as supporting local wind projects, choosing a green electricity tariff, and reducing unnecessary electricity use can help lower both energy demand and your carbon footprint.</p>
+        <div class="figure-pair">
+          <div>
+            <h3>Onshore Wind</h3>
+            <p>Onshore wind farms account for a large share of installed wind capacity worldwide. Choosing sites with steady wind speeds and minimal disruption to local communities is a simple way to lower carbon emissions and generate reliable energy.</p>
+          </div>
+          <div>
+            <h3>Offshore Wind</h3>
+            <p>Building wind farms out at sea can significantly increase the amount of clean electricity generated, since offshore winds tend to be stronger and steadier, helping lower environmental impact without changing land use on the coast.</p>
+          </div>
+        </div>
+      </section>
+ 
+      <section class="content-section" id="food">
+        <h2>Hydropower</h2>
+        <figure class="content-figure">
+          <img class="content-img" src="images_ST2/hydropower.png" alt="Hydroelectric dam generating power" loading="lazy">
+          <figcaption>Flowing water generally carries a far smaller lifetime footprint than fossil-fuel generation.</figcaption>
+        </figure>
+        <p>Hydropower contributes significantly to global renewable electricity generation. In general, small-scale and run-of-river hydro systems have a lower environmental impact than large dams that require extensive land, water, and energy to build. Choosing more sustainable hydro projects, reducing water waste, and supporting balanced water management can help lower your carbon footprint while supporting a healthier planet.</p>
+        <ul>
+          <li>Including more run-of-river hydro schemes in a region's energy mix can significantly reduce the carbon emissions associated with electricity production.</li>
+          <li>Reducing water waste helps conserve the resources used to generate, store, and distribute hydroelectric power.</li>
+          <li>Planning reservoir use, maintaining infrastructure, and monitoring river flow are simple ways to reduce waste and support a more sustainable energy supply.</li>
+        </ul>
+      </section>
+ 
+      <section class="content-section" id="waste">
+        <h2>Geothermal &amp; Other Sources</h2>
+        <figure class="content-figure">
+          <img class="content-img" src="images_ST2/geothermal.png" alt="Geothermal power plant with steam vents" loading="lazy">
+          <figcaption>Tapping heat from underground provides a steady, always-available source of clean power.</figcaption>
+        </figure>
+        <p>Geothermal and biomass energy may seem like a small part of the renewable mix, but they still have an important environmental impact. Generating power from underground heat, reusing organic waste for biomass energy, avoiding inefficient systems, and choosing durable infrastructure helps conserve natural resources and reduces reliance on fossil fuels. Proper site selection is especially important, as poorly managed geothermal or biomass projects can reduce efficiency and increase local environmental impact.</p>
+        <p>Investing in geothermal heating, reusing agricultural or organic waste, and choosing well-managed renewable projects has a greater environmental benefit than relying on fossil fuels alone, as it helps avoid the emissions generated during extraction and combustion.</p>
+      </section>
+ 
+      <section class="content-section" id="myths">
+        <h2>Common Myths</h2>
+        <div class="myth-box">
+          <strong>"Renewable energy can't provide enough power for everyone."</strong>
+          Large-scale fossil fuel plants still supply significant power today, but renewable capacity is growing rapidly. Investment in solar, wind, and storage technology continues to close the gap and encourages utilities to adopt more sustainable solutions.
+        </div>
+        <div class="myth-box">
+          <strong>"Solar panels cancel out everything else I do."</strong>
+          Installing solar panels is important, but it cannot completely offset other environmental impacts. Reducing emissions from transport, home energy use, and consumption habits often creates a much bigger difference in lowering your overall carbon footprint.
+        </div>
+        <div class="myth-box">
+          <strong>"Renewable energy is only about wind turbines."</strong>
+          Wind can create significant clean electricity, but it is only one part of the renewable energy mix. Solar, hydro, geothermal, and biomass sources often contribute a larger and more varied share of a region's annual power supply.
+        </div>
+      </section>
+ 
+      <section class="content-section" id="reduce">
+        <h2>Switching to Renewable Energy</h2>
+        <p>Switching to renewable energy does not require completely changing your lifestyle overnight. Making a few realistic and consistent changes, such as choosing a green electricity tariff, installing solar panels where possible, supporting local wind or hydro projects, or reducing overall electricity use, can create a meaningful impact over time. Start with the changes that are easiest to adopt and gradually build more sustainable habits.</p>
+      </section>
+      
+     
+    </div>
+  </div>
+  </main>
+
+  <!-- FOOTER-->
+  <footer class="site-footer">
+    <div class="footer-inner">
+
+      <div class="footer-col">
+        <h3>ClimACT</h3>
+       <p> A student-built website raising awareness of<br> SDG 13 - Climate Action.</p>
+       
+        
+        
+      </div>
+
+      <div class="footer-col">
+        <h4>Pages</h4>
+        <ul>
+            <li><a href="../HomePage/home.html">Home</a></li>
+            <li><a href="../AIS/ais.html">Impact Simulator</a></li>
+            <li><a href="../Gallery/gallery.html">Gallery</a></li>
+            <li><a href="../Feedback/feedback.html">Feedback</a></li>
+            <li><a href="../Team/team.html">Team</a></li>
+            <li><a href="../Profile/profile.html">User Profile</a></li>
+            <li><a href="../Sitemap/sitemap.html">Sitemap</a></li>
+      </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <!-- Link your relevant Web Pages-->
+         
+        <a href="../PageEditor/pageEditor_ST1.html">Page Editor</a>   
+        <a href="../ValidationPage/validation_ST1.html">Validation Page</a>
+        <a href="../Accessibility/accessibility_ST1.html">Accessibility </a>
+        <!-- Add your Student role number, Name, Student ID and the pages you're working on .Eg: Home Page, Team Page-->
+        <p>P. S. Hettiarachchi (W2212567) - Student 2<br>
+        Splash Screen &amp; Action Impact Simulation Page</p>
+        </p>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <span>© 2026 ClimAct – University of Westminster</span>
+      <span>Built for 4COSC011W | SDG 13 Climate Action</span>
+    </div>
+  </footer>
+
+</body>
+</html>

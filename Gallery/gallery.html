@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  
+  <title>ClimACT| Gallery</title><!--PAGE TITLE Eg:Home,Feedback-->
+
+  
+  <link rel="stylesheet" href="../style.css">
+  
+
+  <style>
+
+
+    
+    .gallery-wrap {
+      --gallery-ink: #0d3b52;
+      --gallery-accent: #2a8fb8;
+    }
+    .gallery-wrap h2 {
+      color: var(--gallery-ink);
+      font-family: 'Playfair Display', serif;
+    }
+ 
+    /* 2. Gallery grid  */
+    .thumb-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 1.4rem;
+      margin: 1.8rem 0 2.5rem;
+    }
+ 
+    /* 3. Thumbnail card  */
+    .thumb-card {
+      background: var(--color-surface);
+      border: 2px solid transparent;
+      border-radius: var(--radius);
+      overflow: hidden;
+      cursor: pointer;
+      box-shadow: var(--shadow);
+      transition: box-shadow 0.3s ease, border-color 0.3s ease;
+    }
+    .thumb-card.is-hovered {
+      border-color: var(--gallery-accent);
+      box-shadow: var(--shadow-hover);
+    }
+    .thumb-card img {
+      width: 100%;
+      height: 170px;
+      object-fit: cover;
+      display: block;
+    }
+    .thumb-card .thumb-label {
+      padding: 0.8rem 1rem;
+      font-family: var(--font-heading);
+      font-weight: 700;
+      color: var(--gallery-ink);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .thumb-card .thumb-label small {
+      font-family: var(--font-body);
+      font-weight: 400;
+      color: var(--color-text-light);
+    }
+ 
+    /* extended view  */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(13, 20, 15, 0.72);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1.2rem;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.25s ease;
+      z-index: 1000;
+    }
+    .modal-overlay.is-open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    .modal-box {
+      background: var(--color-surface);
+      border-radius: var(--radius);
+      max-width: 640px;
+      width: 100%;
+      max-height: 88vh;
+      overflow-y: auto;
+      position: relative;
+      transform: translateY(16px);
+      transition: transform 0.25s ease;
+    }
+    .modal-overlay.is-open .modal-box { transform: translateY(0); }
+ 
+    .modal-box img { width: 100%; max-height: 280px; object-fit: cover; }
+    .modal-body { padding: 1.4rem 1.6rem 1.8rem; }
+ 
+    /* 5. Close button  */
+    .modal-close {
+      position: absolute;
+      top: 0.6rem; right: 0.7rem;
+      background: rgba(0,0,0,0.55);
+      color: #fff;
+      border: none;
+      width: 36px; height: 36px;
+      border-radius: 50%;
+      font-size: 1.1rem;
+      cursor: pointer;
+      z-index: 2;
+    }
+    .modal-close:hover, .modal-close:focus-visible { background: var(--color-accent); color: #1c1c1c; }
+ 
+    
+    .modal-controls {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      margin-top: 1.2rem;
+      padding-top: 1rem;
+      border-top: 1px solid var(--color-border);
+    }
+    .modal-controls fieldset {
+      border: none;
+      padding: 0;
+      margin: 0;
+    }
+    .modal-controls legend {
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--color-text-light);
+      margin-bottom: 0.35rem;
+    }
+    .swatch-btn, .font-btn {
+      border: 2px solid var(--color-border);
+      background: #fff;
+      border-radius: 6px;
+      padding: 0.3rem 0.7rem;
+      margin-right: 0.35rem;
+      cursor: pointer;
+      font-size: 0.85rem;
+    }
+    .swatch-btn.active, .font-btn.active {
+      border-color: var(--gallery-accent);
+      font-weight: 700;
+    }
+ 
+
+    
+    .theme-heading {
+      grid-column: 1 / -1;
+      margin: 1.6rem 0 0.2rem;
+      padding-bottom: 0.3rem;
+      border-bottom: 2px solid var(--gallery-accent);
+      color: var(--gallery-ink);
+      font-family: var(--font-heading);
+    }
+    .theme-heading:first-child { margin-top: 0; }
+ 
+    
+    .modal-body.theme-forest { background: #eaf3e8; }
+    .modal-body.theme-ocean  { background: #e6f2f7; }
+    .modal-body.theme-sunset { background: #fbeee3; }
+    .modal-body.font-serif  { font-family: 'Playfair Display', serif; }
+
+
+    .modal-body.font-mono   { font-family: 'Courier New', monospace; }
+
+
+    
+
+
+  </style>
+
+
+</head>
+<body>
+
+  <span id="top"></span>
+      <a href="#top" class="go-top" aria-label="Go back to top of page">↑</a>
+
+  <header class="site-header">
+    <div class="header-inner">
+
+    
+    <!--WEBSITE BRANDING & LOGO-->
+      <a href="../HomePage/home.html" class="site-identity">
+        <img src="../Assets/Images/logo.png" alt="ClimACT website logo" class="logo">
+        <span class="site-name">ClimACT</span>
+      </a>
+
+      
+      <nav class="main-nav" aria-label="Main navigation">
+        <ul>
+
+          <li><a href="../HomePage/home.html">Home</a></li>
+
+            <li><a href="../Gallery/gallery.html" class="active">Gallery</a></li>
+            <li><a href="../AIS/ais.html">Impact Simulator</a></li>
+            <li><a href="../Feedback/feedback.html">Feedback</a></li>
+            <li><a href="../Team/team.html">Team</a></li>
+            <li><a href="../Profile/profile.html">User Profile</a></li>
+            <li><a href="../Sitemap/sitemap.html">Sitemap</a></li>
+        </ul>
+      </nav>
+
+    </div>
+  </header>
+
+  <section class="page-hero">
+    <div class="hero-content">
+
+      <h1>Gallery</h1>
+      <p>A closer look at the climate solutions behind ClimACT. </p>
+    </div>
+      
+    </section>
+  <main>
+
+    <div class="main-content">
+      
+      <!-- MAIN CONTENT AREA -->
+
+       <p>Every image below links to one real climate solution referenced across the site. Click a thumbnail to open its extended view, where you can also try changing the colour scheme and font used for that description.</p>
+
+       
+
+ 
+      <h2>Climate Solutions in Focus</h2>
+ 
+      <div class="thumb-grid" id="thumbGrid">
+ 
+        <div class="thumb-card" tabindex="0" role="button" aria-haspopup="dialog"
+             data-img="../Gallery/images/everydaycycling.png?width=700"
+             data-alt="Rows of bicycles parked along a cycle lane in a city street"
+             data-title="Everyday Cycling"
+             data-desc="Cities that invest in safe cycling infrastructure, like the bike lanes shown here, cut both transport emissions and traffic congestion. For short trips, cycling is often the fastest, cheapest, and lowest-carbon option available to a student or commuter.">
+          <img src="../Gallery/images/everydaycycling.png" alt="Riding bicycles for work.">
+          <div class="thumb-label">Everyday Cycling <small>click to expand</small></div>
+        </div>
+ 
+        <div class="thumb-card" tabindex="0" role="button" aria-haspopup="dialog"
+             data-img="../Gallery/images/sortrecycle.png?width=700"
+             data-alt="Colour-coded recycling bins for sorting different types of waste"
+             data-title="Sorting & Recycling"
+             data-desc="Sorting waste by material lets far more of it be reprocessed instead of landfilled or incinerated. Recycling metals, glass, and plastics uses significantly less energy than producing them from raw materials, directly lowering the carbon cost of everyday products.">
+          <img src="../Gallery/images/sortrecycle.png" alt="Colour-coded recycling bins for sorting different types of waste">
+          <div class="thumb-label">Sorting &amp; Recycling <small>click to expand</small></div>
+        </div>
+ 
+        <div class="thumb-card" tabindex="0" role="button" aria-haspopup="dialog"
+              data-img="../Gallery/images/wetlandrestoration.png?width=700"
+              data-alt="A restored wetland with birds and healthy vegetation"
+              data-title="Wetland Restoration"
+              data-desc="Restoring wetlands stores carbon, reduces flood risks, filters water naturally, and supports a wide variety of plant and animal species.">
+          <img src="../Gallery/images/wetlandrestoration.png" alt="A restored wetland with birds and healthy vegetation">
+          <div class="thumb-label">Wetland Restoration <small>click to expand</small></div>
+        </div>
+ 
+        <div class="thumb-card" tabindex="0" role="button" aria-haspopup="dialog"
+            data-img="../Gallery/images/sustainableforestry.png?width=700"
+            data-alt="Workers managing a forest using sustainable forestry practices"
+            data-title="Sustainable Forestry"
+            data-desc="Responsible forest management protects biodiversity, stores carbon, and ensures forests continue providing resources for future generations.">
+          <img src="../Gallery/images/sustainableforestry.png" alt="Workers managing a forest using sustainable forestry practices">
+          <div class="thumb-label">Sustainable Forestry <small>click to expand</small></div>
+        </div>
+ 
+
+        <!-- ========== CARBON FOOTPRINTS ============= -->
+        <h3 class="theme-heading">Carbon Footprints</h3>
+ 
+        <div class="thumb-card" tabindex="0" role="button" aria-haspopup="dialog"
+            data-img="../Gallery/images/electricvehicle.png?width=700"
+            data-alt="An electric vehicle charging at a public charging station"
+            data-title="Electric Vehicles"
+            data-desc="Electric vehicles produce no exhaust emissions while driving and can significantly reduce greenhouse gas emissions when powered by renewable electricity, making transportation cleaner.">
+          <img src="../Gallery/images/electricvehicle.png" alt="An electric vehicle charging at a public charging station">
+          <div class="thumb-label">Electric Vehicles <small>click to expand</small></div>
+        </div>
+ 
+        <div class="thumb-card" tabindex="0" role="button" aria-haspopup="dialog"
+            data-img="../Gallery/images/publictransport.png?width=700"
+            data-alt="Passengers boarding a modern electric bus"
+            data-title="Public Transport"
+            data-desc="Using buses, trains, and trams reduces the number of individual cars on the road, cutting fuel consumption, traffic congestion, and carbon emissions.">
+          <img src="../Gallery/images/publictransport.png" alt="Passengers boarding a modern electric bus">
+          <div class="thumb-label">Public Transport <small>click to expand</small></div>
+        </div>
+ 
+        <div class="thumb-card" tabindex="0" role="button" aria-haspopup="dialog"
+            data-img="../Gallery/images/efficienthome.png?width=700"
+            data-alt="A modern energy-efficient home with insulation and efficient lighting"
+             data-title="Energy-Efficient Homes"
+            data-desc="Improving insulation, using LED lighting, and installing energy-efficient appliances lowers electricity demand, reducing greenhouse gas emissions and saving energy.">
+          <img src="../Gallery/images/efficienthome.png" alt="A modern energy-efficient home with insulation and efficient lighting">
+          <div class="thumb-label">Energy-Efficient Homes <small>click to expand</small></div>
+        </div>
+ 
+        <div class="thumb-card" tabindex="0" role="button" aria-haspopup="dialog"
+            data-img="../Gallery/images/greenbuilding.png?width=700"
+            data-alt="An environmentally friendly office building with rooftop gardens"
+            data-title="Green Buildings"
+             data-desc="Green buildings use sustainable materials, efficient designs, and natural ventilation to reduce energy consumption and environmental impact.">
+          <img src="../Gallery/images/greenbuilding.png" alt="An environmentally friendly office building with rooftop gardens">
+            <div class="thumb-label">Green Buildings <small>click to expand</small></div>
+        </div>
+ 
+        <!-- ========= RENEWABLE ENERGY ============ -->
+        <h3 class="theme-heading">Renewable Energy</h3>
+ 
+        <div class="thumb-card" tabindex="0" role="button" aria-haspopup="dialog"
+             data-img="../Gallery/images/solarpower.png?width=700"
+             data-alt="Solar panel array installed at the edge of a farm field"
+             data-title="Solar Power"
+             data-desc="Solar panels convert sunlight directly into electricity with no combustion and no direct emissions. Falling panel costs mean rooftop and farm-edge solar installations like this one now generate some of the cheapest electricity in history, making them one of the fastest-growing sources of power worldwide.">
+          <img src="../Gallery/images/solarpower.png" alt="Solar panel array installed at the edge of a farm field">
+          <div class="thumb-label">Solar Power <small>click to expand</small></div>
+        </div>
+ 
+        <div class="thumb-card" tabindex="0" role="button" aria-haspopup="dialog"
+             data-img="../Gallery/images/windpowr.png?width=700"
+             data-alt="Rows of white wind turbines on an open plain"
+             data-title="Wind Power"
+             data-desc="Modern wind turbines can each power thousands of homes, and unlike fossil fuel plants they produce no ongoing carbon emissions once built. Onshore and offshore wind farms are now a core part of national plans to decarbonise electricity grids.">
+          <img src="../Gallery/images/windpowr.png" alt="Rows of white wind turbines on an open plain">
+          <div class="thumb-label">Wind Power <small>click to expand</small></div>
+        </div>
+ 
+        <div class="thumb-card" tabindex="0" role="button" aria-haspopup="dialog"
+              data-img="../Gallery/images/hydropower.png?width=700"
+              data-alt="A hydroelectric dam generating renewable electricity"
+              data-title="Hydropower"
+              data-desc="Hydropower generates electricity using the natural movement of flowing water without burning fossil fuels. It provides a reliable source of renewable energy while producing very low greenhouse gas emissions during operation.">
+            <img src="../Gallery/images/hydropower.png?width=400" alt="A hydroelectric dam generating renewable electricity">
+          <div class="thumb-label">Hydropower <small>click to expand</small></div>
+        </div>
+ 
+        <div class="thumb-card" tabindex="0" role="button" aria-haspopup="dialog"
+             data-img="../Gallery/images/geothermal.png?width=700"
+             data-alt="Krafla geothermal power plant in Iceland with steam rising from its cooling towers"
+             data-title="Geothermal Energy"
+             data-desc="Geothermal plants tap heat stored deep underground to generate electricity around the clock, without waiting for sun or wind. In volcanically active regions like Iceland, geothermal already supplies a large share of national electricity and heating.">
+          <img src="../Gallery/images/geothermal.png" alt=" geothermal power plant ">
+          <div class="thumb-label">Geothermal Energy <small>click to expand</small></div>
+        </div>
+ 
+        <!-- ============ PROTECTING ECOSYSTEMS ============ -->
+        <h3 class="theme-heading">Protecting Ecosystems</h3>
+ 
+        <div class="thumb-card" tabindex="0" role="button" aria-haspopup="dialog"
+            data-img="../Gallery/images/treeplanting.png?width=700"
+            data-alt="People planting young trees in a community reforestation project"
+            data-title="Tree Planting"
+            data-desc="Planting trees helps absorb carbon dioxide from the atmosphere, restores ecosystems, prevents soil erosion, and creates habitats for wildlife. Reforestation is one of the most effective long-term climate action strategies.">
+          <img src="../Gallery/images/treeplanting.png" alt="People planting young trees in a community reforestation project">
+          <div class="thumb-label">Tree Planting <small>click to expand</small></div>
+        </div>
+ 
+        <div class="thumb-card" tabindex="0" role="button" aria-haspopup="dialog"
+             data-img="../Gallery/images/coralreefs.png?width=700"
+             data-alt="Colourful coral reef photographed underwater at the Great Barrier Reef"
+             data-title="Coral Reef Protection"
+             data-desc="Coral reefs support around a quarter of all marine species despite covering a tiny fraction of the ocean floor, but rising sea temperatures cause bleaching that can kill reefs like this one within weeks. Cutting emissions is now essential to keeping reefs alive.">
+          <img src="../Gallery/images/coralreefs.png" alt="Colourful coral reef photographed underwater at the Great Barrier Reef">
+          <div class="thumb-label">Coral Reef Protection <small>click to expand</small></div>
+        </div>
+ 
+        <div class="thumb-card" tabindex="0" role="button" aria-haspopup="dialog"
+            data-img="../Gallery/images/wildlifeconservation.png?width=700"
+            data-alt="Protected forest providing habitat for wildlife"
+            data-title="Wildlife Conservation"
+            data-desc="Protecting wildlife and natural habitats strengthens ecosystems, preserves biodiversity, and increases resilience against climate change.">
+          <img src="../Gallery/images/wildlifeconservation.png" alt="Protected forest providing habitat for wildlife">
+          <div class="thumb-label">Wildlife Conservation <small>click to expand</small></div>
+        </div>
+ 
+        <div class="thumb-card" tabindex="0" role="button" aria-haspopup="dialog"
+            data-img="../Gallery/images/cleanriver.png?width=700"
+            data-alt="Volunteers cleaning litter from a riverbank"
+            data-title="Clean Rivers"
+            data-desc="Keeping rivers free from pollution protects freshwater ecosystems, supports biodiversity, and ensures safe water supplies for communities.">
+          <img src="../Gallery/images/cleanriver.png" alt="Volunteers cleaning litter from a riverbank">
+          <div class="thumb-label">Clean Rivers <small>click to expand</small></div>
+        </div>
+ 
+        <!-- =========== COMMUNITY CLIMATE ACTION ============== -->
+        <h3 class="theme-heading">Community Climate Action</h3>
+ 
+        <div class="thumb-card" tabindex="0" role="button" aria-haspopup="dialog"
+            data-img="../Gallery/images/climateeducation.png?width=700"
+            data-alt="Students learning about climate action in a classroom"
+            data-title="Climate Education"
+            data-desc="Educating communities about climate science and sustainable practices encourages informed decisions, inspires action, and supports long-term environmental protection.">
+          <img src="../Gallery/images/climateeducation.png" alt="Students learning about climate action in a classroom">
+          <div class="thumb-label">Climate Education <small>click to expand</small></div>
+        </div>
+ 
+        <div class="thumb-card" tabindex="0" role="button" aria-haspopup="dialog"
+            data-img="../Gallery/images/sustainablefood.png?width=700"
+            data-alt="Fresh locally grown vegetables displayed at a farmers market"
+            data-title="Sustainable Food"
+            data-desc="Choosing locally produced, seasonal, and sustainably grown food helps reduce transportation emissions, supports local farmers, and lowers environmental impacts.">
+          <img src="../Gallery/images/sustainablefood.png" alt="Fresh locally grown vegetables displayed at a farmers market">
+          <div class="thumb-label">Sustainable Food <small>click to expand</small></div>
+        </div>
+ 
+        <div class="thumb-card" tabindex="0" role="button" aria-haspopup="dialog"
+            data-img="../Gallery/images/waterconservation.png?width=700"
+            data-alt="Rainwater harvesting system collecting water from a roof"
+            data-title="Water Conservation"
+            data-desc="Saving water through efficient use and rainwater harvesting reduces pressure on freshwater resources and helps communities adapt to climate change.">
+          <img src="../Gallery/images/waterconservation.png" alt="Rainwater harvesting system collecting water from a roof">
+          <div class="thumb-label">Water Conservation <small>click to expand</small></div>
+        </div>
+ 
+        <div class="thumb-card" tabindex="0" role="button" aria-haspopup="dialog"
+            data-img="../Gallery/images/composting.png?width=700"
+            data-alt="Kitchen food scraps being composted in a garden bin"
+            data-title="Composting"
+            data-desc="Composting organic waste reduces methane emissions from landfills while creating nutrient-rich compost that improves soil health.">
+          <img src="../Gallery/images/composting.png" alt="Kitchen food scraps being composted in a garden bin">
+          <div class="thumb-label">Composting <small>click to expand</small></div>
+        </div>
+ 
+      </div>
+    </div>
+  
+
+      
+    
+
+ 
+  <!--  extended view -->
+  <div class="modal-overlay" id="modalOverlay" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal-box">
+      <button class="modal-close" id="modalClose" aria-label="Close extended view">✕</button>
+      <img id="modalImg" src="#" alt="#">
+      <div class="modal-body" id="modalBody">
+        <h3 id="modalTitle">.</h3>
+        <p id="modalDesc"></p>
+ 
+        <div class="modal-controls">
+          <fieldset>
+            <legend>Colour scheme</legend>
+            <button type="button" class="swatch-btn active" data-theme="">Default</button>
+            <button type="button" class="swatch-btn" data-theme="theme-forest">Forest</button>
+            <button type="button" class="swatch-btn" data-theme="theme-ocean">Ocean</button>
+            <button type="button" class="swatch-btn" data-theme="theme-sunset">Sunset</button>
+          </fieldset>
+          <fieldset>
+            <legend>Font style</legend>
+            <button type="button" class="font-btn active" data-font="">Default</button>
+            <button type="button" class="font-btn" data-font="font-serif">Serif</button>
+            <button type="button" class="font-btn" data-font="font-mono">Mono</button>
+          </fieldset>
+        </div>
+      </div>
+    </div>
+  </div>
+      
+     
+   
+  </main>
+
+  <!-- FOOTER-->
+  <footer class="site-footer">
+    <div class="footer-inner">
+
+      <div class="footer-col">
+        <h3>ClimACT</h3>
+       <p> A student-built website raising awareness of<br> SDG 13 - Climate Action.</p>
+       
+        
+        
+      </div>
+
+      <div class="footer-col">
+        <h4>Pages</h4>
+        <ul>
+            <li><a href="../HomePage/home.html">Home</a></li>
+            <li><a href="../AIS/ais.html">Impact Simulator</a></li>
+            <li><a href="../Gallery/gallery.html">Gallery</a></li>
+            <li><a href="../Feedback/feedback.html">Feedback</a></li>
+            <li><a href="../Team/team.html">Team</a></li>
+            <li><a href="../Profile/profile.html">User Profile</a></li>
+            <li><a href="../Sitemap/sitemap.html">Sitemap</a></li>
+      </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <!-- Link your relevant Web Pages-->
+         
+        <a href="../PageEditor/pageEditor_ST1.html">Page Editor</a>   
+        <a href="../ValidationPage/validation_ST1.html">Validation Page</a>
+        <a href="../Accessibility/accessibility.html">Accessibility </a>
+        <!-- Add your Student role number, Name, Student ID and the pages you're working on .Eg: Home Page, Team Page-->
+       <p>D.N.M.P.Peiris (W2212895) - Student 1<br>
+           Home Page &amp; Gallery Page</p>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <span>© 2026 ClimAct – University of Westminster</span>
+      <span>Built for 4COSC011W | SDG 13 Climate Action</span>
+    </div>
+  </footer>
+
+  <!-- Gallery Interactivity-->
+
+  <script>
+    
+    (function () {
+      const cards = document.querySelectorAll('.thumb-card');
+      const overlay = document.getElementById('modalOverlay');
+      const modalImg = document.getElementById('modalImg');
+      const modalTitle = document.getElementById('modalTitle');
+      const modalDesc = document.getElementById('modalDesc');
+      const modalBody = document.getElementById('modalBody');
+      const closeBtn = document.getElementById('modalClose');
+ 
+      // Hover interaction
+      
+      cards.forEach(card => {
+        card.addEventListener('mouseenter', () => card.classList.add('is-hovered'));
+        card.addEventListener('mouseleave', () => card.classList.remove('is-hovered'));
+        card.addEventListener('focus', () => card.classList.add('is-hovered'));
+        card.addEventListener('blur', () => card.classList.remove('is-hovered'));
+ 
+        // Click-to-expand
+        card.addEventListener('click', () => openModal(card));
+        card.addEventListener('keydown', (e) => {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            openModal(card);
+          }
+        });
+      });
+ 
+      function openModal(card) {
+        modalImg.src = card.dataset.img;
+        modalImg.alt = card.dataset.alt;
+        modalTitle.textContent = card.dataset.title;
+        modalDesc.textContent = card.dataset.desc;
+        overlay.classList.add('is-open');
+        closeBtn.focus();
+      }
+ 
+      function closeModal() {
+        overlay.classList.remove('is-open');
+      }
+ 
+      // Close interactions
+      
+      closeBtn.addEventListener('click', closeModal);
+      overlay.addEventListener('click', (e) => {
+        if (e.target === overlay) closeModal();
+      });
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && overlay.classList.contains('is-open')) closeModal();
+      });
+ 
+      // User customzation
+      document.querySelectorAll('.swatch-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          modalBody.classList.remove('theme-forest', 'theme-ocean', 'theme-sunset');
+          if (btn.dataset.theme) modalBody.classList.add(btn.dataset.theme);
+          document.querySelectorAll('.swatch-btn').forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+        });
+      });
+ 
+      
+      document.querySelectorAll('.font-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          modalBody.classList.remove('font-serif', 'font-mono');
+          if (btn.dataset.font) modalBody.classList.add(btn.dataset.font);
+          document.querySelectorAll('.font-btn').forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+        });
+      });
+    })();
+  </script>
+
+  
+</body>
+</html>

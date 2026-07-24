@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="refresh" content="4; url=../HomePage/home.html">
+        
+        <title>ClimACT</title>
+
+        <link rel="preload" href="Images/card.jpg" as="image">
+        <link rel="preload" href="Images/background.jpg" as="image">
+
+        <!-- Page-Specific Embedded CSS for the Splash Screen -->
+        <style>
+            /* Page Background */
+            body{
+                background-image:linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)),url("Images/background.jpg");
+                background-size: cover;
+                background-repeat: no-repeat;
+                margin: 0;
+                height: 100vh;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+
+            /* Splash Card Layout */
+            .splash{
+                width:600px;
+                height:500px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;    
+                text-align: center;    
+                background-image:linear-gradient(rgba(255,255,255,0.08),rgba(255,255,255,0.08)),url("Images/card.jpg");
+                background-size: cover;
+                background-position: center;
+                background-blend-mode: overlay;
+                box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+                border: 1px solid rgba(255,255,255,0.15);
+                border-radius: 30px;
+                color: white;
+                
+            }
+
+            /* SDG Label (13) */
+            .sdg{
+                font-family: 'Poppins', sans-serif;
+                display: inline-block;
+                padding: 6px 14px;
+                border: 1px solid rgb(3, 71, 12);
+                border-radius: 20px;
+                color: rgba(2, 87, 23, 0.75);
+                font-size: 10px;
+                letter-spacing: 1px;
+                background: rgba(244, 245, 244, 0);
+                margin-top: 25px;
+                margin-bottom:15px;
+            }
+
+            /* Logo & Title */
+            .logo{
+                display: block;
+                width:70px;
+                height:auto;
+                margin-bottom: -20px;
+            }
+
+            .climact{
+                margin-top: 0;
+                margin-bottom: -15px;
+                color: #1b5e20;
+                font-family: 'Poppins', sans-serif;
+                font-size: 40px;
+                font-weight: 790;
+                letter-spacing: 1px;
+            }
+
+            /* Website Mission */
+            .mission{
+                width: 80%;
+                margin-top: 15px;
+                color: #667868;
+                font-family: 'Poppins', sans-serif;
+                font-size: 15px;
+                line-height: 1.6;
+                text-align: center;
+            }
+
+            .members{
+                width: 85%;
+                margin-top: 10px;
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 12px;
+            }
+
+            /* Team Members */
+            .member{
+                padding: 8px 12px;
+                border: 1px solid rgb(3, 71, 12);
+                border-radius: 20px;
+                background: rgba(167, 202, 174, 0.15);
+                color: #1b5e20;
+                text-align: center;
+                font-family: 'Poppins', sans-serif;
+                font-size: 13px;
+                font-weight: 500;
+            }
+
+            /* Loading Section */
+            .loader-section{
+                margin-top: 25px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .loader{
+                width: 40px;
+                height: 40px;
+                border: 5px solid rgba(27,94,32,0.2);
+                border-top: 5px solid #1b5e20;
+                border-radius: 50%;
+                animation: spin 1s linear infinite;
+            }
+
+            #countdown{
+
+                margin-top: 12px;
+                font-family: 'Poppins', sans-serif;
+                font-size: 15px;
+                color: #1b5e20;
+            }
+
+            /* Loading Animation */
+            @keyframes spin{
+
+                from{
+                    transform: rotate(0deg);
+                }
+
+                to{
+                    transform: rotate(360deg);
+                }
+
+            }
+
+            /* Skip Button */
+            #skip-btn{
+                margin-top: 18px;
+                padding: 10px 28px;
+                border: none;
+                border-radius: 25px;
+                background-color: #1b5e20;
+                color: white;
+                font-family: 'Poppins', sans-serif;
+                font-size: 14px;
+                font-weight: 600;
+                cursor: pointer;
+                transition: 0.3s;
+            }
+
+            #skip-btn:hover{
+                background-color: #2e7d32;
+                transform: translateY(-2px);
+            }
+
+        </style>
+    </head>
+
+    <!-- Splash Screen Content -->
+    <body>
+        <!-- Main Splash Container -->
+        <div class="splash">
+            <p class="sdg">SDG 13 - CLIMATE ACTION</p>
+            <img src="Images/logo.png" alt="ClimACT Logo" class="logo">
+            <h1 class="climact">ClimACT</h1>
+            <p class="mission">
+                Small choices create real climate action. ClimACT encourages students to learn, act, and inspire environmental change in their communities.
+            </p>
+            <!-- Group Members -->
+            <div class="members">
+                <div class="member">Student 1 : Michelle</div>
+                <div class="member">Student 2 : Pesandi</div>
+                <div class="member">Student 3 : Kishala</div>
+                <div class="member">Student 4 : Chathil</div>
+            </div>
+            <!-- Loading Animation and Countdown -->
+            <div class="loader-section">
+                <div class="loader"></div>
+                <p id="countdown">Entering site in 4...</p>
+                <button id="skip-btn">Skip Intro</button>
+            </div>
+        </div>
+    
+    <!-- Page-Specific JavaScript -->
+    <script>
+        // Countdown Timer
+        let seconds = 4;
+        const countdown = document.getElementById("countdown");
+        const timer = setInterval(function(){
+            seconds--;
+            if(seconds > 0){
+                countdown.textContent = "Entering site in " + seconds + "...";
+            }
+            else{
+                countdown.textContent = "Entering site...";
+                clearInterval(timer);
+            }
+        },1000);
+
+        // Skip Intro Button
+        const skipButton = document.getElementById("skip-btn");
+        skipButton.addEventListener("click", function(){
+        window.location.href = "../HomePage/home.html";
+        });
+    </script>
+    </body>
+</html>

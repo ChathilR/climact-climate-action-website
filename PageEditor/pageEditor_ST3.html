@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page Editor - Kishala Kodithuwakku (W2212872)</title>
+
+     
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="../PageEditor/css/pageEditor_validator.css">
+
+    
+
+</head>
+<body>
+    <span id="top"></span>
+      <a href="#top" class="go-top" aria-label="Go back to top of page">↑</a>
+
+    <header class="site-header">
+    <div class="header-inner">
+
+    <!--WEBSITE BRANDING & LOGO-->
+      <a href="../HomePage/home.html" class="site-identity">
+        <img src="../Assets/Images/logo.png" alt="ClimACT website logo" class="logo">
+        <span class="site-name">ClimACT</span>
+      </a>
+
+      <nav class="main-nav" aria-label="Main navigation">
+        <ul>
+          <li><a href="../HomePage/home.html">Home</a></li>
+            <li><a href="../Gallery/gallery.html">Gallery</a></li>
+            <li><a href="../AIS/ais.html">Impact Simulator</a></li>
+            <li><a href="../Feedback/feedback.html">Feedback</a></li>
+            <li><a href="../Team/team.html">Team</a></li>
+            <li><a href="../Profile/profile.html">User Profile</a></li>
+            <li><a href="../Sitemap/sitemap.html">Sitemap</a></li>
+        </ul>
+      </nav>
+
+    </div>
+  </header>
+
+    <section class="stud">
+        <h2>Kishala Kodithuwakku&nbsp;,&nbsp; CLIMA &nbsp;,&nbsp; Student 3</h2>
+    </section>
+
+    <div class="container">
+        <!-- Main content area -->
+        <main>
+
+            <section>
+                <h2 id="feedback">Feedback Page</h2>
+                    <h3>Technical Description</h3>
+
+                    <p><dl>
+
+                        <dt><strong>HTML Structure</strong></dt>
+                        <dd>
+                            The Feedback page reuses the shared <code>&lt;header&gt;</code>, navigation and <code>&lt;footer&gt;</code> from the site template, with everything page-specific inside <code>&lt;main&gt;</code>.<br><br>
+                            <ul>
+                                <li>A <code>&lt;section class="directory-section"&gt;</code> holds a <code>&lt;div class="section-heading-row"&gt;</code> (the heading plus a sort <code>&lt;select&gt;</code>) and a <code>&lt;div class="programme-scroll" tabindex="0"&gt;</code> wrapping six <code>&lt;article class="card programme-card"&gt;</code> items, each with an icon <code>&lt;img&gt;</code>, a heading, a description and a call-to-action link.</li>
+                                <li>A <code>&lt;section class="reviews-section"&gt;</code> holds a ratings summary and three review <code>&lt;article&gt;</code> cards.</li>
+                                <li>The form itself is a <code>&lt;form id="feedbackForm" novalidate&gt;</code> split into two <code>&lt;fieldset&gt;</code>/<code>&lt;legend&gt;</code> groups ("Personal Details" and "Feedback Details"), using <code>text</code>, <code>email</code>, <code>tel</code>, <code>date</code> and <code>datetime-local</code> inputs, a <code>&lt;select&gt;</code>, and a <code>&lt;textarea maxlength="300"&gt;</code>.</li>
+                                <li>Each field has a matching <code>&lt;span class="error-msg" role="alert"&gt;</code> for inline validation feedback, and a live <code>&lt;p id="charCounter" aria-live="polite"&gt;</code> reports the remaining character count.</li>
+                            </ul>
+                        </dd><br><br>
+
+                        <dt><strong>CSS Techniques</strong></dt>
+                        <dd>
+                            <b>Layout</b><br>
+                            <ul>
+                                <li>The shared <code>.card-grid</code> is CSS Grid by default, so <code>.programme-scroll .programme-grid</code> overrides it to <code>display: flex</code> with <code>width: max-content</code>, letting the six programme cards line up in a single horizontally scrollable row (<code>overflow-x: auto</code> plus <code>scroll-snap-type: x mandatory</code>) instead of wrapping into a tall grid.</li>
+                                <li>Flexbox lays out the ratings summary (the large numeric score beside its label and description) and each <code>.form-row</code> (label, input and error stacked vertically).</li>
+                                <li>Fixed positioning is used site-wide for the "Go to Top" button, defined once globally in <code>style.css</code> rather than repeated per page.</li>
+                            </ul><br>
+
+                            <b>Styling</b><br>
+                            <ul>
+                                <li>CSS variables from <code>:root</code> keep colours, spacing and shadows consistent with the rest of the site.</li>
+                                <li>A <code>.has-error</code> class, toggled by JavaScript, applies a red border and background to any invalid field.</li>
+                                <li><code>.confirmation-msg:not(:empty)</code> means the confirmation box's background and border only appear once the script has actually written a message into it, so it takes up no visual space beforehand.</li>
+                                <li>The programme "Join"/"Get Involved" buttons get an extra hover effect (colour change plus <code>scale(1.06)</code>) on top of the site-wide button hover, for stronger feedback in a horizontally scrolling context.</li>
+                            </ul>
+                        </dd><br><br>
+
+                        <dt><strong>JavaScript</strong></dt>
+                        <dd>
+                            The form's interactivity is provided by a <code>&lt;script&gt;</code> embedded at the end of the body, and covers three things: a live character counter that updates the <code>aria-live</code> counter as the user types in the message field; custom validation on submit that checks each required field (name, a regex-checked email format, a regex-checked phone format, address, programme selection, visit date, and message) and writes a specific error message into that field's error span while toggling <code>.has-error</code>; and, on success, a confirmation message written into <code>#confirmationMsg</code> and the form reset. If validation fails, the script moves keyboard focus to the first invalid field, so a keyboard or screen-reader user lands directly on the problem rather than having to search for it.
+                        </dd><br><br>
+
+                    </dl></p>
+
+                    <h3>Accessibility</h3>
+                        <p>The two <code>&lt;fieldset&gt;</code>/<code>&lt;legend&gt;</code> groups give screen readers explicit context for each group of inputs. Every field has an explicit <code>&lt;label for="..."&gt;</code> tied to its input's <code>id</code>. Both the character counter and the confirmation message use <code>aria-live="polite"</code> so updates are announced without moving focus, while error messages use <code>role="alert"</code> so a failed submission is announced immediately. Invalid fields are marked with both a red border and red text, not colour alone, so the error remains clear to users who cannot distinguish colour easily.</p>
+                        <br><br>
+
+                    <h3>Link to the validation page</h3>
+                        <p><a href="../ValidationPage/validation_ST3.html#feedbackVal" style="color: blue; text-decoration: underline;">View Validation Page</a></p>
+                        <br><br>
+
+                    <h3>Link to the page</h3>
+                        <p><a href="../Feedback/feedback.html"  rel="noopener" style="color: blue; text-decoration: underline;">View Feedback Page</a></p>
+                        <br><br>
+            </section>
+
+            <section>
+                <h2 id="team">Team Page</h2>
+                    <h3>Technical Description</h3>
+
+                    <p><dl>
+
+                        <dt><strong>HTML Structure</strong></dt>
+                        <dd>
+                            The team is presented as a <code>&lt;section class="team-grid" aria-label="Team members"&gt;</code> containing four <code>&lt;div class="team-card" tabindex="0" role="group" aria-label="..."&gt;</code> blocks.<br><br>
+                            <ul>
+                                <li>Each card holds an avatar <code>&lt;img&gt;</code>, an always-visible <code>.team-basic</code> block with the member's name and role, and a <code>.team-details</code> block with their full name, role, and a short contribution summary that is hidden until the card is hovered or focused.</li>
+                                <li>The <code>tabindex="0"</code>, <code>role="group"</code> and descriptive <code>aria-label</code> on every card mean a keyboard or screen-reader user can identify each team member without depending on the hover-revealed content alone.</li>
+                            </ul>
+                        </dd><br><br>
+
+                        <dt><strong>CSS Techniques</strong></dt>
+                        <dd>
+                            <b>Layout</b><br>
+                            <ul>
+                                <li>The four cards sit in a responsive CSS Grid: <code>grid-template-columns: repeat(auto-fit, minmax(240px, 1fr))</code>.</li>
+                                <li>The reveal panel animates open with a <code>max-height: 0 &rarr; 260px</code> transition combined with <code>:hover</code>, <code>:focus</code> and <code>:focus-within</code>, so it triggers on mouse hover, direct keyboard focus, and focus landing on anything nested inside the card.</li>
+                            </ul><br>
+
+                            <b>Styling</b><br>
+                            <ul>
+                                <li>The thumbnail gets a combined <code>opacity</code>, <code>scale()</code> and <code>saturate()</code> change on the same trigger, for layered visual feedback that the card is interactive.</li>
+                                <li>A visible <code>outline</code> appears on <code>:focus</code> to satisfy the keyboard focus-state requirement.</li>
+                            </ul>
+                        </dd><br><br>
+
+                        <dt><strong>JavaScript</strong></dt>
+                        <dd>
+                            No JavaScript is used on this page. The hover/focus reveal, the thumbnail feedback, and the focus outline are all handled entirely through CSS transitions and pseudo-classes.
+                        </dd><br><br>
+
+                    </dl></p>
+
+                    <h3>Accessibility</h3>
+                        <p><code>:focus-within</code> was included specifically so the reveal still works when focus lands on a link or button nested in the card rather than the card element itself. Each member's name uses an <code>&lt;h2&gt;</code> rather than an <code>&lt;h3&gt;</code>, since, after the page's own <code>&lt;h1&gt;</code>, the four team members are the primary content of the page. Every card is reachable and operable by keyboard alone, with a clearly visible focus outline distinguishing the selected card.</p>
+                        <br><br>
+
+                    <h3>Link to the validation page</h3>
+                        <p><a href="../ValidationPage/validation_ST3.html#teamVal" style="color: blue; text-decoration: underline;">View Validation Page</a></p>
+                        <br><br>
+
+                    <h3>Link to the page</h3>
+                        <p><a href="../Team/team.html"  rel="noopener" style="color: blue; text-decoration: underline;">View Team Page</a></p>
+                        <br><br>
+            </section>
+
+            <section>
+                <h2 id="content">Content Page &ndash; Protecting Ecosystems</h2>
+                    <h3>Technical Description</h3>
+
+                    <p><dl>
+
+                        <dt><strong>HTML Structure</strong></dt>
+                        <dd>
+                            The article follows the shared template exactly, with a <code>&lt;nav class="toc-nav" aria-label="Page contents"&gt;</code> placed at the top of <code>.main-content</code>, listing anchor links to each of the page's seven <code>&lt;section class="content-section" id="..."&gt;</code> blocks.<br><br>
+                            <ul>
+                                <li>Each section uses its own <code>&lt;h2&gt;</code> (and <code>&lt;h3&gt;</code> where a topic splits into sub-points), semantic <code>&lt;figure&gt;</code>/<code>&lt;figcaption&gt;</code> pairs for four supporting images, and a two-column <code>.figure-pair</code> layout for the restoration comparison.</li>
+                                <li>Three <code>.myth-box</code> callouts present the "myths" section as a bold claim followed by a short rebuttal.</li>
+                                <li>The "Go to Top" button uses the same shared <code>&lt;span id="top"&gt;&lt;/span&gt;</code> plus fixed <code>.go-top</code> anchor pattern used across the whole site, defined once in <code>style.css</code>.</li>
+                            </ul>
+                        </dd><br><br>
+
+                        <dt><strong>CSS Techniques</strong></dt>
+                        <dd>
+                            This page's styling is written as an embedded <code>&lt;style&gt;</code> block in the <code>&lt;head&gt;</code> rather than a separate external stylesheet, which the coursework explicitly allows as an alternative to a linked file.<br><br>
+                            <b>Layout</b><br>
+                            <ul>
+                                <li><code>.toc-nav ol</code> uses CSS multi-column layout (<code>columns: 2</code>, collapsing to one column under 600px) to keep a seven-item contents list compact.</li>
+                                <li><code>.figure-pair</code> uses CSS Grid: one column by default, switching to two columns above 700px for the Protected Areas / Community-Led Restoration comparison.</li>
+                            </ul><br>
+
+                            <b>Styling</b><br>
+                            <ul>
+                                <li>Every <code>.content-section</code> has <code>scroll-margin-top</code> so that clicking a contents link doesn't leave the target heading hidden behind the sticky site header.</li>
+                                <li>Images use a soft double border (a surface-colour border plus a thin outline), a box-shadow, and <code>max-width: 100%</code> for full responsive sizing.</li>
+                                <li>One in-text link in the "What You Can Do" section carries an inline <code>color: blue; text-decoration: underline;</code> style, since it sits in plain body text with no wrapping class &ndash; without it, the shared <code>a { color: inherit; text-decoration: none; }</code> reset would make it invisible as a link.</li>
+                            </ul>
+                        </dd><br><br>
+
+                        <dt><strong>JavaScript</strong></dt>
+                        <dd>
+                            No JavaScript is used on this page. The in-page contents navigation, the responsive figure layout, and the "Go to Top" button are all implemented in plain HTML and CSS.
+                        </dd><br><br>
+
+                    </dl></p>
+
+                    <h3>Accessibility</h3>
+                        <p>The multi-column contents list gives readers a fast way to jump to any of the seven sections without scrolling past all of them first. <code>scroll-margin-top</code> is a small addition, but without it every anchor jump would leave the target heading hidden behind the header. Heading levels never skip (h1 &rarr; h2 &rarr; h3), and every image has descriptive alt text rather than a generic caption or filename.</p>
+                        <br><br>
+
+                    <h3>Link to the validation page</h3>
+                        <p><a href="../ValidationPage/validation_ST3.html#contentVal" style="color: blue; text-decoration: underline;">View Validation Page</a></p>
+                        <br><br>
+
+                    <h3>Link to the page</h3>
+                        <p><a href="../ContentPage/content_ST3.html"  rel="noopener" style="color: blue; text-decoration: underline;">View Content Page</a></p>
+                        <br><br>
+            </section>
+
+            <section>
+                <h2 id="challenge">Challenges and Lessons Learned</h2>
+                    <p><dl>
+
+                        <dt><strong>Keyboard Accessibility on the Team Page</strong></dt>
+                        <dd>
+                            An early version of the expandable member cards only responded to <code>:hover</code>, so the extra detail was invisible to anyone navigating by keyboard. Adding <code>:focus</code> and <code>:focus-within</code> to the same rule, alongside <code>tabindex="0"</code> on each card, fixed this so the interaction is now consistent across input methods.
+                        </dd><br><br>
+
+                        <dt><strong>Overriding a Shared Grid on the Feedback Page</strong></dt>
+                        <dd>
+                            Making the programme cards scroll horizontally instead of wrapping meant overriding the shared <code>.card-grid</code> (CSS Grid) rule inside the scrollable rail. My first attempt kept the cards wrapping into rows because the grid rules were still winning. Explicitly setting <code>display: flex</code> and <code>width: max-content</code> on the more specific <code>.programme-scroll .programme-grid</code> resolved the conflict.
+                        </dd><br><br>
+
+                        <dt><strong>Invisible Links on the Content Page</strong></dt>
+                        <dd>
+                            The shared <code>a { color: inherit; text-decoration: none; }</code> reset meant a plain in-text link had no visible affordance at all until I added an inline colour and underline to it directly. The lesson from all three issues was to always check computed styles in browser dev tools when a shared class or rule doesn't behave as expected in a new context, and to test interactive features with the keyboard alone, not just the mouse.
+                        </dd><br><br>
+
+                    </dl></p>
+            </section>
+
+            <section>
+                <h2 id="compliance"> Compliance</h2>
+                    <p>The Feedback, Team, and Content pages I created comply with JANET's Acceptable Use Policy in the following ways:</p>
+                    <ul>
+                        <li><strong>Original and appropriate content:</strong> All written text on my three pages was authored by me for this coursework. None of it is defamatory, obscene, or offensive, and all of it is directly relevant to the ClimACT website's SDG 13 purpose.</li>
+                        <li><strong>Responsible use of external resources:</strong> Programme icons, team avatars, and content-page images are stored locally within each page's own folder (<code>Feedback/Images/</code>, <code>Team/images/</code>, <code>ContentPage/images_ST3/</code>). Any image not created by me personally will be properly credited in the References section before final submission, and any real photographs of teammates will only be used with their consent &ndash; no unauthorised or unlicensed third-party material has been published.</li>
+                        <li><strong>No unauthorised data collection:</strong> The Feedback form does not transmit data to a server or third party. Its JavaScript calls <code>event.preventDefault()</code> on submit specifically so the form never leaves the browser &ndash; no personal data entered by a visitor (name, email, phone, address) is ever stored, shared, or retained anywhere.</li>
+                        <li><strong>No security risk:</strong> The site contains no external form submission endpoints, no third-party scripts beyond Google Fonts, and no code that could compromise a visitor's device or data.</li>
+                        <li><strong>Academic integrity:</strong> All technical descriptions in this Page Editor describe my own implementation work; where I referenced external documentation (MDN, module lecture notes) to inform my approach, those sources are credited in the References section.</li>
+                    </ul>
+                    <p><a href="https://intranet.ecs.westminster.ac.uk/modules/4COSC011W/compliance.html" target="_blank" rel="noopener" style="color: blue; text-decoration: underline;">See the lecture notes for more details on compliance.</a></p>
+            </section>
+
+            <section>
+                <h2 id="group"> Group Meetings and Individual Contribution Log</h2>
+                    <p>Requirements: a minimum of six group meetings recorded, each student's own account, focused on individual contribution.</p>
+
+                    <table>
+                        <thead>
+                            <tr>
+                                <th colspan="6">Group Meetings and Contribution Log &ndash; Kishala Kodithuwakku (Student 3)</th>
+                            </tr>
+                            <tr>
+                                <th>Meeting</th>
+                                <th>Date &amp; Time</th>
+                                <th>Format</th>
+                                <th>Objective</th>
+                                <th>Attended</th>
+                                <th>Your Individual Contribution</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>6 June 2026</td>
+                                <td>Online</td>
+                                <td>Select the SDG topic and assign individual responsibilities.</td>
+                                <td>Yes</td>
+                                <td>I agreed to take responsibility for the Feedback page, the Team page, and my own individual Content page on Protecting Ecosystems.</td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>12 June 2026</td>
+                                <td>Face-to-face</td>
+                                <td>Discuss the website design and create a consistent layout.</td>
+                                <td>Yes</td>
+                                <td>I contributed ideas on the card-based layout for programme listings and reviewed the shared navigation and footer structure with the group.</td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td>22 June 2026</td>
+                                <td>Online</td>
+                                <td>Review individual progress and identify any issues.</td>
+                                <td>Yes</td>
+                                <td>I presented my first draft of the Feedback page (programme directory and form) and the Team page concept, and received feedback on layout and content.</td>
+                            </tr>
+                            <tr>
+                                <td>4</td>
+                                <td>9 July 2026</td>
+                                <td>Face-to-face</td>
+                                <td>Review completed content pages and improve consistency.</td>
+                                <td>Yes</td>
+                                <td>I completed my Protecting Ecosystems content page and confirmed my page links connected correctly with the rest of the site.</td>
+                            </tr>
+                            <tr>
+                                <td>5</td>
+                                <td>17 July 2026</td>
+                                <td>Face-to-face</td>
+                                <td>Test navigation and website functionality.</td>
+                                <td>Yes</td>
+                                <td>I tested the Feedback form's JavaScript validation, checked the Team page's keyboard accessibility, and helped fix broken links across the website.</td>
+                            </tr>
+                            <tr>
+                                <td>6</td>
+                                <td>19 July 2026</td>
+                                <td>Online</td>
+                                <td>Final review before submission.</td>
+                                <td>Yes</td>
+                                <td>I completed my Page Editor and Validation pages, verified my three pages met the assignment requirements, and confirmed everything integrated correctly with the rest of the website.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+            </section>
+
+            <section>
+                <h2 id="ref">References</h2>
+                <ul>
+                    <li>Goal 13: Climate action. (no date).<i> The Global Goals</i>. Available from<a href="https://globalgoals.org/goals/13-climate-action/" target="_blank" style="color: blue; text-decoration: underline;"> https://globalgoals.org/goals/13-climate-action/ </a>&nbsp;[Accessed 19 June 2026].</li><br>
+                    <li>University of Westminster (2026). <i>4COSC011W Compliance Lecture Notes</i>. Available from<a href="https://intranet.ecs.westminster.ac.uk/modules/4COSC011W/compliance.html" target="_blank" style="color: blue; text-decoration: underline;"> https://intranet.ecs.westminster.ac.uk/modules/4COSC011W/compliance.html</a>&nbsp;[Accessed 19 June 2026].</li><br>
+                    <li>Bro Code. (2024). <i>JavaScript Full Course for free 🌐.</i>Available from<a href="https://www.youtube.com/watch?v=lfmg-EJ8gm4" target="_blank" style="color: blue; text-decoration: underline;">https://www.youtube.com/watch?v=lfmg-EJ8gm4</a>[Accessed 13 June 2026].</li><br>
+                    <li>MDN Web Docs. (2026). <i>ARIA: alert role &amp; live regions</i>. Available from<a href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA" target="_blank" style="color: blue; text-decoration: underline;"> https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA</a>&nbsp;[Accessed 19 June 2026].</li><br>
+                    <li>MDN Web Docs. (2026). <i>CSS Grid Layout and Flexbox.</i> Available from<a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_grid_layout" target="_blank" style="color: blue; text-decoration: underline;"> https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_grid_layout</a>&nbsp;[Accessed 19 June 2026].</li><br>
+                    <li>Stock Images, Royalty-Free Images, Illustrations, Vectors and Videos - iStock. (no date).<i> iStockPhoto.com</i>. Available from <a href="https://www.istockphoto.com/" target="_blank" style="color: blue; text-decoration: underline;">https://www.istockphoto.com/</a>&nbsp; [Accessed 17 July 2026].</li><br>
+
+                </ul>
+            </section>
+
+        </main>
+
+        <!-- Sidebar area -->
+        <aside>
+            <h3>Contents</h3>
+            <ul class="top-level-ul">
+                <li><a href="#overview">Overview</a></li>
+                <li><a href="#feedback">Feedback Page</a></li>
+                <li><a href="#team">Team Page</a></li>
+                <li><a href="#content">Content Page</a></li>
+                <li><a href="#challenge">Challenges and Lessons</a></li>
+                <li><a href="#compliance">Compliance</a></li>
+                <li><a href="#group">Group Meetings</a></li>
+                <li><a href="#ref">References</a></li>
+            </ul>
+        </aside>
+    </div>
+
+    <footer class="site-footer">
+    <div class="footer-inner">
+
+      <div class="footer-col">
+        <h3>ClimACT</h3>
+       <p> A student-built website raising awareness of<br> SDG 13 - Climate Action.</p>
+      </div>
+
+      <div class="footer-col">
+        <h4>Pages</h4>
+        <ul>
+            <li><a href="../HomePage/home.html">Home</a></li>
+            <li><a href="../AIS/ais.html">Impact Simulator</a></li>
+            <li><a href="../Gallery/gallery.html">Gallery</a></li>
+            <li><a href="../Feedback/feedback.html">Feedback</a></li>
+            <li><a href="../Team/team.html">Team</a></li>
+            <li><a href="../Profile/profile.html">User Profile</a></li>
+            <li><a href="../Sitemap/sitemap.html">Sitemap</a></li>
+      </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <!-- Link your relevant Web Pages-->
+         <ul>
+            <li><a href="pageEditor_ST3.html">Page Editor</a></li>   
+            <li><a href="../ValidationPage/validation_ST3.html">Validation Page</a></li>
+            <li><a href="../Accessibility/accessibility.html">Accessibility </a></li>
+
+        </ul>
+        <!-- Add your Student role number, Name, Student ID and the pages you're working on .Eg: Home Page, Team Page-->
+       <p>Kishala Kodithuwakku (W2212872) - Student 3</br>Feedback Page &amp; Team Page</p>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <span>© 2026 ClimAct – University of Westminster</span>
+      <span>Built for 4COSC011W | SDG 13 Climate Action</span>
+    </div>
+  </footer>
+
+</body>
+</html>

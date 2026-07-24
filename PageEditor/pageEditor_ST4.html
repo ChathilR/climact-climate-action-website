@@ -1,0 +1,585 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editor Page</title>
+
+    <link rel="stylesheet" href="css/pageEditor_validator.css"> 
+    <link rel="stylesheet" href="../style.css">
+
+    <style>
+
+        .corepages{
+            color:black;
+        }
+        .corepages ul{
+            list-style: none;
+        }
+        .meeting-table{
+            width:100%;
+            border-collapse:collapse;
+            margin:25px 0;
+            font-size:16px;
+            background:#fff;
+        }
+        table{
+            color:black;
+        }
+
+        .meeting-table th,
+        .meeting-table td{
+            border:1px solid #222;
+            padding:10px;
+            vertical-align:top;
+        }
+
+        .meeting-table thead tr:first-child th{
+            background:#3b3b3b;
+            color:#fff;
+            font-size:18px;
+            font-weight:bold;
+            text-align:center;
+        }
+
+        .meeting-table thead tr:nth-child(2) th{
+            background:#3b3b3b;
+            color:#fff;
+            font-weight:bold;
+            text-align:center;
+        }
+
+        .meeting-table td:nth-child(1){
+            width:60px;
+            text-align:center;
+        }
+
+        .meeting-table td:nth-child(2){
+            width:120px;
+        }
+
+        .meeting-table td:nth-child(3){
+            width:110px;
+        }
+
+        .meeting-table td:nth-child(4){
+            width:240px;
+        }
+
+        .meeting-table td:nth-child(5){
+            width:90px;
+            text-align:center;
+        }
+
+        .meeting-table td:nth-child(6){
+            width:auto;
+        }
+
+        .meeting-table tbody tr:nth-child(even){
+            background:#f8f8f8;
+        }
+
+        .meeting-table tbody tr:hover{
+            background:#ececec;
+        }
+        .site-footer{
+            text-align:left;
+        }
+        .container{
+            text-align:left;
+        }
+
+        .ref{
+            color:black;
+            text-align:left;
+        }
+        .ref a{
+            color:blue;
+        }
+
+    </style>
+
+</head>
+<body>
+    
+
+    <header id="top">
+          <header class="site-header">
+    <div class="header-inner">
+
+    
+      <a href="../HomePage/home.html" class="site-identity">
+        <img src="../Assets/Images/logo.png" alt="ClimACT website logo" class="logo">
+        <span class="site-name">ClimACT</span>
+      </a>
+
+      
+    <nav class="main-nav" aria-label="Main navigation">
+        <ul>
+            <li><a href="../HomePage/home.html">Home</a></li>
+            <li><a href="../Gallery/gallery.html">Gallery</a></li>
+            <li><a href="../AIS/ais.html">Impact Simulator</a></li>
+            <li><a href="../Feedback/feedback.html">Feedback</a></li>
+            <li><a href="../Team/team.html">Team</a></li>
+            <li><a href="../Profile/profile.html">User Profile</a></li>
+            <li><a href="../Sitemap/sitemap.html">Sitemap</a></li>
+        </ul>
+    </nav>
+
+    </div>
+    </header>
+
+
+    <section class="stud">
+        <h2>G. C. Rajarathna, CLIMA, Student 4</h2>
+    </section>
+
+    <div class="container">
+        <main>
+
+            <section>
+                <h2 id="home">Profile Page</h2>
+                    <h3>Technical Description</h3>
+                        <p>
+                        The User Profile page was built using semantic HTML elements such as
+                        <code>main</code>, <code>section</code>, <code>button</code>, and
+                        <code>form</code>-related elements to organise the page into clear,
+                        well-structured sections. Separate cards were used to display the
+                        profile information, progress tracker, and profile image, making the
+                        layout easy to understand and navigate.
+                        </p>
+
+                        <p>
+                        CSS Flexbox was used to arrange the page layout, while reusable classes
+                        provided consistent spacing, colours, borders, and typography. Progress
+                        bars, buttons, profile cards, and status indicators were styled with
+                        CSS to create a clean and visually consistent interface that matches the
+                        rest of the website.
+                        </p>
+
+                        <p>
+                        JavaScript was used to provide the page's interactivity. Prompt dialogs
+                        collect user information step by step, and DOM manipulation updates the
+                        profile details without reloading the page. Functions calculate the
+                        completion percentage, update the progress bar, allow users to upload a
+                        profile picture, reset the profile, and revisit incomplete steps,
+                        creating a dynamic and interactive user experience.
+                        </p>               
+
+                    <h3>Accessibility</h3>
+                        <p>
+                        Accessibility was considered throughout the development of the User
+                        Profile page. Semantic HTML headings and sections provide a logical page
+                        structure for screen readers, while descriptive button labels make the
+                        interface easier to understand. Colour choices were selected to provide
+                        good contrast between text and backgrounds, improving readability.
+                        </p>
+
+                        <p>
+                        Images include meaningful alternative text where appropriate, and the
+                        page can be navigated using a keyboard. The profile progress indicator
+                        provides clear visual feedback, helping users understand which steps
+                        have been completed and which information still needs to be entered.
+                        </p>   
+
+                    <h3>Link to the validation page</h3> 
+                        <p><a href="../ValidationPage/validation_ST4.html#splashVal" style="color:blue">Validation Page</a>
+                    <h3>Link to the page</h3>
+                        <p><a href="../Profile/profile.html" style="color:blue">Profile Page</a></p>
+            </section>
+
+            <section>
+                <h2 id="sitemap">Sitemap</h2>
+
+                <h3>Technical Description</h3>
+
+                <p>
+                    The Sitemap page was developed using semantic HTML elements such as
+                    <code>main</code>, <code>section</code>, and an inline
+                    <code>svg</code> element to present the website structure in a
+                    clear and organised way. Each page is represented by an SVG node,
+                    while connecting lines visually illustrate the relationships
+                    between the pages and the overall navigation hierarchy.
+                </p>
+
+                <p>
+                    CSS was used to style the SVG nodes, connector lines, text, and
+                    hover effects while maintaining a consistent appearance with the
+                    rest of the website. Flexbox was used to position the main content
+                    and ensure the page layout remained clean and responsive across
+                    different screen sizes.
+                </p>
+
+                <p>
+                    Interactivity was achieved by wrapping each SVG node inside an
+                    anchor element, allowing users to navigate directly to different
+                    pages by clicking the corresponding boxes. Hover and focus effects
+                    provide visual feedback, making the sitemap both interactive and
+                    easy to use.
+                </p>
+
+                <h3>Accessibility</h3>
+
+                <p>
+                    Accessibility was considered throughout the Sitemap page by using
+                    semantic HTML together with descriptive ARIA labels on the SVG
+                    links. This allows screen readers to identify each navigation
+                    element and clearly describe its destination to users.
+                </p>
+
+                <p>
+                    Keyboard users can navigate between all sitemap links using the
+                    Tab key, while clear focus and hover styles provide visual
+                    feedback. The page also maintains sufficient colour contrast and
+                    logical heading levels to improve readability and overall
+                    accessibility.
+                </p>
+
+                <h3>Link to the validation page</h3>
+
+                <p>
+                    <a href="../ValidationPage/validation_ST4.html#volunteerVal" style="color:blue">
+                        Validation Page
+                    </a>
+                </p>
+
+                <h3>Link to the page</h3>
+
+                <p>
+                    <a href="../Sitemap/sitemap.html" style="color:blue">
+                        Sitemap Page
+                    </a>
+                </p>
+            </section>
+
+            <section>
+                <h2 id="content">Community Climate Action (Content Page)</h2>
+
+                <h3>Technical Description</h3>
+
+                <p>
+                    The Community Climate Action page was developed using semantic
+                    HTML elements such as <code>main</code>, <code>section</code>,
+                    <code>article</code>, <code>figure</code>, and
+                    <code>nav</code> to organise the content into clear and
+                    meaningful sections. A hero section introduces the topic,
+                    while an in-page navigation menu allows users to quickly
+                    jump to different parts of the page.
+                </p>
+
+                <p>
+                    CSS was used to create a consistent layout that matches the
+                    rest of the website. Responsive images, figure captions,
+                    callout boxes, and content sections were styled using reusable
+                    classes, while Flexbox and Grid were used where appropriate to
+                    improve spacing, alignment, and responsiveness across different
+                    screen sizes.
+                </p>
+
+                <p>
+                    The page also includes internal navigation links, responsive
+                    images with descriptive captions, and clearly structured
+                    headings to improve readability. Semantic HTML and consistent
+                    styling were used throughout the page to provide a clear,
+                    informative, and user-friendly learning experience.
+                </p>
+
+                <h3>Accessibility</h3>
+
+                <p>
+                    Accessibility was considered throughout the page by using a
+                    logical heading hierarchy, semantic HTML elements, and
+                    descriptive alternative text for all images. The internal
+                    navigation menu allows keyboard and screen reader users to
+                    quickly move between different sections of the page.
+                </p>
+
+                <p>
+                    Good colour contrast, readable font sizes, descriptive link
+                    text, and responsive layouts improve usability across a wide
+                    range of devices. Images include captions to provide additional
+                    context, while the page structure makes the content easier to
+                    understand for all users.
+                </p>
+
+                <h3>Link to the validation page</h3>
+
+                <p>
+                    <a href="../ValidationPage/validation_ST4.html#contentVal" style="color:blue">
+                        Validation Page
+                    </a>
+                </p>
+
+                <h3>Link to the page</h3>
+
+                <p>
+                    <a href="../ContentPage/content_ST4.html" style="color:blue">
+                        Community Climate Action Page (Content Page)
+                    </a>
+                </p>
+            </section>
+
+
+            <section>
+                <h2 id="challenges">Challenges and Lessons Learned</h2>
+
+                <p>
+                    One of the main challenges during development was creating an
+                    interactive User Profile page while keeping the interface simple
+                    and easy to use. Managing the profile progress, updating
+                    information dynamically with JavaScript, and allowing users to
+                    revisit incomplete steps required careful planning and testing.
+                </p>
+
+                <p>
+                    Another challenge was ensuring the Sitemap and content page
+                    remained consistent with the overall website design. Adjusting
+                    layouts, fixing navigation links, and maintaining a uniform
+                    appearance across all pages required several revisions and
+                    collaboration with other group members.
+                </p>
+
+                <p>
+                    Throughout this project, I improved my understanding of semantic
+                    HTML, CSS layouts, JavaScript DOM manipulation, accessibility,
+                    and validation. I also learned the importance of testing pages
+                    regularly, validating code, and communicating with the team to
+                    ensure all pages worked together correctly.
+                </p>
+            </section>
+
+
+            <section>
+                <h2 id="compliance">Compliance</h2>
+
+                <p>
+                    My pages were developed in accordance with JANET web publishing
+                    guidelines by using clear, accessible, and well-structured HTML.
+                    Semantic elements such as <code>header</code>,
+                    <code>main</code>, <code>section</code>, and
+                    <code>footer</code> were used to create a logical document
+                    structure that improves accessibility and maintainability.
+                </p>
+
+                <p>
+                    Accessibility was considered throughout the development process.
+                    Images include alternative text where appropriate, heading levels
+                    follow a logical hierarchy, colour choices provide sufficient
+                    contrast, and interactive elements can be accessed using a
+                    keyboard. Validation tools were also used to identify and correct
+                    HTML issues before submission.
+                </p>
+
+                <p>
+                    Copyright requirements were respected by using properly licensed
+                    resources and acknowledging external sources in the References
+                    section. Together, these practices help ensure the website is
+                    accessible, maintainable, and compliant with the web publishing
+                    standards expected for this coursework.
+                </p>
+            </section>
+
+            <section>
+                <h2 id="group">Group Meetings and Individual Contribution Log</h2>
+
+                <p>
+                    The following log summarises the meetings attended during the project
+                    and highlights my individual contributions as Student 4.
+                </p>
+
+                <table>
+
+                    <thead>
+                        <tr>
+                            <th>Meeting</th>
+                            <th>Date &amp; Time</th>
+                            <th>Format</th>
+                            <th>Objective</th>
+                            <th>Attended</th>
+                            <th>Your Individual Contribution</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+
+                        <tr>
+                            <td>1</td>
+                            <td>6 June 2026</td>
+                            <td>Online</td>
+                            <td>Select the SDG topic and assign individual responsibilities.</td>
+                            <td>Yes</td>
+                            <td>I agreed to take responsibility for the User Profile page, Sitemap, Community Climate Action content page, Page Editor, and Validation page.</td>
+                        </tr>
+
+                        <tr>
+                            <td>2</td>
+                            <td>12 June 2026</td>
+                            <td>Face-to-face</td>
+                            <td>Discuss the website design and create a consistent layout.</td>
+                            <td>Yes</td>
+                            <td>I suggested ideas for the User Profile layout, discussed the design of the interactive sitemap, and helped ensure the navigation and footer remained consistent across the website.</td>
+                        </tr>
+
+                        <tr>
+                            <td>3</td>
+                            <td>22 June 2026</td>
+                            <td>Online</td>
+                            <td>Review individual progress and identify any issues.</td>
+                            <td>Yes</td>
+                            <td>I presented the first version of my User Profile page and Sitemap, received feedback from the group, and noted improvements for the layout, accessibility, and functionality.</td>
+                        </tr>
+
+                        <tr>
+                            <td>4</td>
+                            <td>9 July 2026</td>
+                            <td>Face-to-face</td>
+                            <td>Review completed content pages and improve consistency.</td>
+                            <td>Yes</td>
+                            <td>I completed the Community Climate Action content page and updated links to ensure it connected correctly with the Home page and the other content pages.</td>
+                        </tr>
+
+                        <tr>
+                            <td>5</td>
+                            <td>17 July 2026</td>
+                            <td>Face-to-face</td>
+                            <td>Test navigation and website functionality.</td>
+                            <td>Yes</td>
+                            <td>I tested the User Profile interactions, verified the Sitemap links, checked image paths and page navigation, and fixed layout and validation issues.</td>
+                        </tr>
+
+                        <tr>
+                            <td>6</td>
+                            <td>19 July 2026</td>
+                            <td>Online</td>
+                            <td>Final review before submission.</td>
+                            <td>Yes</td>
+                            <td>I completed my Page Editor and Validation pages, made final improvements based on group feedback, validated my HTML pages, and confirmed that my work integrated correctly with the rest of the website.</td>
+                        </tr>
+
+                    </tbody>
+
+                </table>
+            </section>
+
+
+        </section>
+ 
+        <section>
+            <h2 id="ref">References</h2>
+
+            <ul class="ref">
+
+                <li>
+                    Bro Code. (2024). <i>JavaScript Full Course for free 🌐.</i>
+                    Available from
+                    <a href="https://www.youtube.com/watch?v=lfmg-EJ8gm4" target="_blank">
+                        https://www.youtube.com/watch?v=lfmg-EJ8gm4
+                    </a>
+                    [Accessed 15 July 2026].
+                </li>
+
+                <li>
+                    Content / MODULE: (2025) <i>4COSC011C.3 Web Design and Development (IIT Sri Lanka).</i>
+                    (no date). Available from
+                    <a href="https://learning.westminster.ac.uk/ultra/courses/_106071_1/outline" target="_blank">
+                        https://learning.westminster.ac.uk/ultra/courses/_106071_1/outline
+                    </a>
+                    [Accessed 10 July 2026].
+                </li>
+
+                <li>
+                    HTML Tutorial. (no date).
+                    Available from
+                    <a href="https://www.w3schools.com/html/default.asp" target="_blank">
+                        https://www.w3schools.com/html/default.asp
+                    </a>
+                    [Accessed 09 July 2026].
+                </li>
+
+                <li>
+                    <i>Stock Images, Royalty-Free Images, Illustrations, Vectors and Videos - iStock.</i>
+                    (no date). iStockPhoto.com.
+                    Available from
+                    <a href="https://www.istockphoto.com/" target="_blank">
+                        https://www.istockphoto.com/
+                    </a>
+                    [Accessed 17 July 2026].
+                </li>
+
+                <li>
+                    SuperSimpleDev. (2022).
+                    <i>HTML &amp; CSS Full Course - Beginner to Pro.</i>
+                    Available from
+                    <a href="https://www.youtube.com/watch?v=G3e-cpL7ofc" target="_blank">
+                        https://www.youtube.com/watch?v=G3e-cpL7ofc
+                    </a>
+                    [Accessed 16 July 2026].
+                </li>
+
+            </ul>
+        </section>
+
+            <p class="top"><a href="#top">Go top</a></p>
+        
+        </main>
+        <aside>
+            <h3>Core pages developed:</h3>
+            <div class="corepages">
+                <ul>
+                    <li>Profile page</li>
+                    <li>Sitemap page</li>
+                    <li>Content page (Community Climate Action)</li>
+                </ul>
+            </div>
+ 
+        </aside>
+    </div>
+
+
+
+<footer class="site-footer">
+    <div class="footer-inner">
+
+      <div class="footer-col">
+        <h3>ClimACT</h3>
+       <p> A student-built website raising awareness of<br> SDG 13 - Climate Action.</p>
+       
+        
+        
+      </div>
+
+    <div class="footer-col">
+        <h3>Pages</h3>
+
+        <ul>
+            <li><a href="../HomePage/home.html">Home</a></li>
+            <li><a href="../AIS/ais.html">Impact Simulator</a></li>
+            <li><a href="../Gallery/gallery.html">Gallery</a></li>
+            <li><a href="../Feedback/feedback.html">Feedback</a></li>
+            <li><a href="../Team/team.html">Team</a></li>
+            <li><a href="../Profile/profile.html">User Profile</a></li>
+            <li><a href="../Sitemap/sitemap.html">Sitemap</a></li>
+        </ul>
+
+    </div>
+
+      <div class="footer-col">
+        <h3>Quick Links</h3>
+         
+        <a href="../PageEditor/pageEditor_ST4.html">Page Editor</a>   
+        <a href="../ValidationPage/validation_ST4.html">Validation Page</a>
+        <a href="../Accessibility/accessibility.html">Accessibility </a>
+       <p>G. C. Rajarathna (W2212859) - Student 4<br>
+        Profile Page &amp; Sitemap Page</p>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <span>© 2026 ClimAct – University of Westminster</span>
+      <span>Built for 4COSC011W | SDG 13 Climate Action</span>
+    </div>
+</footer>
+</body>
+</html>

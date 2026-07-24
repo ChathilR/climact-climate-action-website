@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  
+
+  <title>ClimACT| Home</title><!--PAGE TITLE Eg:Home,Feedback-->
+
+  
+  <link rel="stylesheet" href="../style.css">
+  
+  <style>
+
+     
+    .hero-highlight {
+      color: var(--color-accent);
+      font-family: 'League Spartan', serif;
+      font-weight: 700;
+    }
+ 
+    
+    .section-intro {
+      max-width: 700px;
+      margin: 0 auto 2rem;
+      text-align: center;
+    }
+    .section-intro h2 {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      border-bottom: 3px solid var(--color-accent);
+      display: inline-block;
+      padding-bottom: 0.3rem;
+    }
+ 
+    
+    .card-body .highlight-list {
+      list-style: none;
+      margin: 0.8rem 0 0 0;
+      padding: 0;
+      border-top: 1px dashed var(--color-border);
+      padding-top: 0.6rem;
+    }
+    .card-body .highlight-list li {
+      position: relative;
+      padding-left: 1.4rem;
+      margin-bottom: 0.4rem;
+      font-size: 17px;
+    }
+    .card-body .highlight-list li::before {
+      content: "🌿";
+      position: absolute;
+      left: 0;
+      top: 0;
+      
+    }
+ 
+    /* Interactive gallery grid  */
+    .content-gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.2rem;
+      margin: 2rem 0 3rem;
+    }
+ 
+    
+    .gallery-item {
+      position: relative;
+      display: block;
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      aspect-ratio: 4 / 3;
+      transition: transform 0.35s ease, box-shadow 0.35s ease;
+    }
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s ease;
+    }
+    .gallery-item:hover,
+    .gallery-item:focus-visible {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-hover);
+    }
+    .gallery-item:hover img,
+    .gallery-item:focus-visible img {
+      transform: scale(1.08);
+    }
+ 
+    /* Caption  */
+    .gallery-caption {
+      position: absolute;
+      left: 0; right: 0; bottom: 0;
+      background: linear-gradient(to top, rgba(16,61,19,0.92), rgba(16,61,19,0));
+      color: #ffffff;
+      padding: 2.2rem 0.9rem 0.7rem;
+      transform: translateY(10%);
+      transition: transform 0.35s ease;
+    }
+    .gallery-item:hover .gallery-caption,
+    .gallery-item:focus-visible .gallery-caption {
+      transform: translateY(0);
+    }
+    .gallery-caption span {
+      display: block;
+      font-size: 0.75rem;
+      font-weight: 400;
+      color: #d7e4d3;
+      margin-top: 0.15rem;
+    }
+    .gallery-caption strong {
+      font-family: var(--font-heading);
+      font-size: 1.05rem;
+    }
+
+
+  </style>
+
+
+
+
+
+
+</head>
+<body>
+
+   <span id="top"></span>
+      <a href="#top" class="go-top" aria-label="Go back to top of page">↑</a>
+
+      
+  <header class="site-header">
+    <div class="header-inner">
+
+    
+    <!--WEBSITE BRANDING & LOGO-->
+      <a href="home.html" class="site-identity">
+        <img src="../Assets/Images/logo.png" alt="ClimACT website logo" class="logo">
+        <span class="site-name">ClimACT</span>
+      </a>
+
+      
+      <nav class="main-nav" aria-label="Main navigation">
+        <ul>
+
+          <li><a href="../HomePage/home.html" class="active">Home</a></li>
+            <li><a href="../Gallery/gallery.html">Gallery</a></li>
+            <li><a href="../AIS/ais.html">Impact Simulator</a></li>
+            <li><a href="../Feedback/feedback.html">Feedback</a></li>
+            <li><a href="../Team/team.html">Team</a></li>
+            <li><a href="../Profile/profile.html">User Profile</a></li>
+            <li><a href="../Sitemap/sitemap.html">Sitemap</a></li>
+
+
+        </ul>
+      </nav>
+
+    </div>
+  </header>
+
+  <section class="page-hero">
+    <div class="hero-content">
+
+
+      <h1>Small Choices. <span class="hero-highlight">Real Climate Action.</span></h1>
+      <p>ClimACT is a student-led hub for SDG 13, turning the science of climate change into everyday actions students and local communities can actually take.</p>
+
+     
+      
+    </div>
+      
+    </section>
+  <main>
+
+    <div class="main-content">
+
+      
+        <p>Climate change is no longer a distant threat described in textbooks.<br>It is the wildfire smoke drifting over campus, the flooded commute, the rising cost of a weekly food shop.<br> SDG - 13, Climate Action, calls on everyone, not just governments, to act with urgency. ClimACT exists to make that call practical: clear explanations, honest numbers, and concrete steps that students, staff, and neighbours can put into practice this week, not "someday."</p>
+       
+ 
+      <!-- MAIN CONTENT AREA -->
+ 
+      <section aria-labelledby="mission-heading">
+        <div class="section-intro">
+          <h2 id="mission-heading">Our Mission</h2>
+          <p>Three ideas ClimACT is built around.</p>
+        </div>
+ 
+        <div class="card-grid">
+ 
+          <article class="card">
+            <img src="../HomePage/images/panel.png" alt="panels">
+            <div class="card-body">
+              <h3>Why Climate Action Can't Wait</h3>
+              <p>Every extra tenth of a degree of global warming increases the risks facing people, ecosystems, and future generations. Rising temperatures contribute to more frequent and intense heatwaves, floods, droughts, wildfires, and rising sea levels, affecting communities around the world. Acting now is far more effective and less costly than dealing with the long-term impacts of climate change later. By reducing emissions, protecting natural ecosystems, and adopting sustainable practices today, we can help create a healthier, safer, and more resilient future for everyone.</p>
+              <ul class="highlight-list">
+                <li>Learn where your own emissions actually come from</li>
+                <li>Vote and campaign with climate policy in mind</li>
+                <li>Push your course, halls, or workplace to publish a carbon plan</li>
+              </ul>
+            </div>
+          </article>
+ 
+          <article class="card">
+            <img src="../HomePage/images/Solar.png" alt="Solar panel array installed at the edge of a farm field">
+            <div class="card-body">
+              <h3>Powering Tomorrow, Today</h3>
+              <p> Renewable energy is no longer just a promise for the futur. It is already one of the most affordable and sustainable sources of electricity in many parts of the world. By replacing fossil fuels with clean energy from the sun, wind, water, and other renewable sources, we can reduce greenhouse gas emissions, improve air quality, and create a more sustainable future. Supporting the transition to renewable energy is one of the most effective ways individuals, communities, businesses, and governments can help tackle climate change while building a cleaner and more resilient world.</p>
+              <ul class="highlight-list">
+                <li>Switch household or hall energy tariffs to a renewable supplier</li>
+                <li>Report unused lighting and heating in shared buildings</li>
+                <li>Support local renewable planning applications instead of opposing them</li>
+              </ul>
+            </div>
+          </article>
+ 
+          <article class="card">
+            <img src="../HomePage/images/cycling.png" alt="Rows of bicycles parked along a cycle lane in a busy city street">
+            <div class="card-body">
+              <h3>Small Habits, Real Change</h3>
+              <p> Everyone has the power to make a positive impact through simple everyday choices. Small actions such as walking, cycling, using public transport, reducing energy consumption, recycling, and avoiding single-use plastics can significantly lower carbon emissions over time. While one person's efforts may seem small, when adopted by millions of people, these habits create meaningful environmental change. Together, everyday actions contribute to a cleaner, healthier, and more sustainable future for our planet.</p>
+              <ul class="highlight-list">
+                <li>Walk or cycle journeys under 3 km instead of driving</li>
+                <li>Batch errands into one trip rather than several</li>
+                <li>Try one plant-forward meal swap a week</li>
+              </ul>
+            </div>
+          </article>
+ 
+        </div>
+      </section>
+ 
+      <section aria-labelledby="gallery-heading">
+        <div class="section-intro">
+          <h2 id="gallery-heading">Explore Our Content Pages</h2>
+          <p>Four deep-dive pages written by the ClimACT team.</p>
+        </div>
+ 
+        <div class="content-gallery">
+ 
+          <a class="gallery-item" href="../ContentPage/content_ST1.html">
+            <img src="../HomePage/images/carbon.png" alt="Carbon footprint">
+            <span class="gallery-caption"><strong>Carbon Footprints</strong><span>Understanding the emissions behind your daily activities.<span></span>
+          </a>
+ 
+          <a class="gallery-item" href="../ContentPage/content_ST2.html">
+            <img src="../HomePage/images/renewable.png" alt="renewable energy">
+            <span class="gallery-caption"><strong>Renewable Energy</strong><span>The shift towards cleaner, low-carbon energy solutions.</span></span>
+          </a>
+ 
+          <a class="gallery-item" href="../ContentPage/content_ST3.html">
+            <img src="../HomePage/images/protect.png" alt="Child planting young tree saplings as part of a reforestation project">
+            <span class="gallery-caption"><strong>Protecting Ecosystems</strong><span>Protecting habitats and the species that depend on them.</span></span>
+          </a>
+ 
+          <a class="gallery-item" href="../ContentPage/content_ST4.html">
+            <img src="../HomePage/images/community.png" alt=" cLeaning as a 
+            Community ">
+            <span class="gallery-caption"><strong>Community Climate Action</strong><span>The power of communities coming together for climate solutions.</span></span>
+          </a>
+ 
+        </div>
+         
+      </section>
+
+      
+      
+
+     
+    </div>
+  </main>
+
+  <!-- FOOTER-->
+  <footer class="site-footer">
+    <div class="footer-inner">
+
+      <div class="footer-col">
+        <h3>ClimACT</h3>
+
+       <p> A student-built website raising awareness of<br> SDG 13 - Climate Action.</p>        
+        
+      </div>
+
+      <div class="footer-col">
+        <h4>Pages</h4>
+        <ul>
+            <li><a href="../HomePage/home.html">Home</a></li>
+            <li><a href="../AIS/ais.html">Impact Simulator</a></li>
+            <li><a href="../Gallery/gallery.html">Gallery</a></li>
+            <li><a href="../Feedback/feedback.html">Feedback</a></li>
+            <li><a href="../Team/team.html">Team</a></li>
+            <li><a href="../Profile/profile.html">User Profile</a></li>
+            <li><a href="../Sitemap/sitemap.html">Sitemap</a></li>
+      </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <!-- Link your relevant Web Pages-->
+         
+        <a href="../PageEditor/pageEditor_ST1.html">Page Editor</a>   
+        <a href="../ValidationPage/validation_ST1.html">Validation Page</a>
+        <a href="../Accessibility/accessibility.html">Accessibility </a>
+        <!-- Add your Student role number, Name, Student ID and the pages you're working on .Eg: Home Page, Team Page-->
+       <p>D.N.M.P.Peiris (W2212895) - Student 1<br>
+         Home Page &amp; Gallery Page
+        </p>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <span>© 2026 ClimAct – University of Westminster</span>
+      <span>Built for 4COSC011W | SDG 13 Climate Action</span>
+    </div>
+  </footer>
+
+</body>
+</html>

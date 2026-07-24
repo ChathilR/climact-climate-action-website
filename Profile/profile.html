@@ -1,0 +1,813 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    
+    <title>ClimACT| Profile</title><!--PAGE TITLE Eg:Home,Feedback-->
+
+    
+    <link rel="stylesheet" href="../style.css">
+    <style>
+        /* PROFILE CONTAINER */
+
+        .profile-container {
+            display: flex;
+            gap: 40px;
+            margin-top: 40px;
+        }
+
+
+        /* LEFT CARD */
+
+        .progress-card {
+
+            width: 320px;
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+
+        }
+
+        .progress-card h2 {
+
+            color: #1b5e20;
+            margin-bottom: 30px;
+
+        }
+
+
+        /* PROGRESS INFO */
+
+        .progress-top {
+
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+            font-weight: bold;
+
+        }
+
+
+        /* PROGRESS BAR */
+
+        .progress-bar {
+
+            width: 100%;
+            height: 15px;
+            background: #e0e0e0;
+            border-radius: 20px;
+            overflow: hidden;
+            margin-bottom: 30px;
+
+        }
+
+        .progress-fill {
+
+            width: 0%;
+            height: 100%;
+            background: #1b5e20;
+            transition: 0.5s;
+
+        }
+
+
+        /* BUTTONS */
+
+        .progress-card button {
+
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            font-size: 17px;
+            border-radius: 10px;
+            cursor: pointer;
+            text-align: left;
+            background-color:white;
+            border:2px solid rgb(215, 214, 214);
+            font-weight:bold;
+            color:rgb(79, 78, 78);
+
+        }
+
+        .progress-card button:hover{
+            border:2px solid rgb(110, 195, 110);
+            transition: 0.15s ease;
+            color:green;
+        }
+
+
+
+        /* .step-button{
+            background-color:white;
+            border-color:red;
+            filter:none;
+        } */
+
+
+        /* RESET BUTTON */
+
+        #reset-profile {
+
+            margin-top: 30px;
+            background: #b71c1c;
+            color: white;
+            border: none;
+            text-align: center;
+
+        }
+
+        #reset-profile:hover {
+
+            background: #8b0000;
+
+        }
+
+
+        /* RIGHT CARD */
+
+        .profile-card {
+
+            flex: 1;
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+
+        }
+
+
+        /* PROFILE HEADER */
+
+        .profile-header {
+
+            display: flex;
+            align-items: center;
+            gap: 25px;
+            margin-bottom: 35px;
+            padding-bottom: 25px;
+            border-bottom: 1px solid #ddd;
+
+        }
+
+        .profile-header img {
+
+            width: 110px;
+            height: 110px;
+            border-radius: 50%;
+            border: 4px solid #1b5e20;
+            object-fit: cover;
+
+        }
+
+        .profile-header h2 {
+
+            color: #1b5e20;
+            margin-bottom: 8px;
+
+        }
+
+        .profile-header p {
+
+            color: gray;
+
+        }
+
+
+        /* PROFILE SECTIONS */
+
+        .profile-section {
+
+            margin-top: 30px;
+
+        }
+
+        .profile-section h3 {
+
+            color: #1b5e20;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #eeeeee;
+            padding-bottom: 10px;
+
+        }
+
+        .profile-section p {
+
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+            font-size: 17px;
+
+        }
+
+        .interest-tags {
+
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+
+        }
+
+        .interest-tag {
+
+            background-color: #e8f5e9;
+            color: #1b5e20;
+            padding: 8px 18px;
+            border-radius: 25px;
+            font-weight: bold;
+        }
+
+        .interest-tag:empty {
+
+            display: none;
+
+        }
+
+
+        /* PROFILE TEXT */
+
+        .profile-section strong {
+
+            color: #222;
+
+        }
+
+        .profile-section span {
+
+            color: #666;
+
+        }
+
+        .completed-step{
+
+            background-color:#e8f5e9 !important;
+            border:2px solid #1b5e20 !important;
+            color:#1b5e20 !important;
+            font-weight:bold;
+
+        }
+
+
+        .profile-info{
+
+            display:flex;
+            flex-direction:column;
+            gap:12px;
+
+        }
+
+        .upload-btn{
+
+            width:140px;
+            padding:5px;
+            text-align:center;
+            background:#1b5e20;
+            color:white;
+            border-radius:8px;
+            cursor:pointer;
+            font-size:15px;
+
+        }
+
+        .upload-btn:hover{
+
+            background:#2e7d32;
+
+        }
+    </style>        
+
+</head>
+<body>
+    <span id="top"></span>
+    <a href="#top" class="go-top" aria-label="Go back to top of page">↑</a>
+
+  <header class="site-header">
+    <div class="header-inner">
+
+    
+    <!--WEBSITE BRANDING & LOGO-->
+      <a href="../HomePage/home.html" class="site-identity">
+        <img src="../Assets/Images/logo.png" alt="ClimACT website logo" class="logo">
+        <span class="site-name">ClimACT</span>
+      </a>
+
+      
+    <nav class="main-nav" aria-label="Main navigation">
+        <ul>
+            <li><a href="../HomePage/home.html">Home</a></li>
+            <li><a href="../Gallery/gallery.html">Gallery</a></li>
+            <li><a href="../AIS/ais.html">Impact Simulator</a></li>
+            <li><a href="../Feedback/feedback.html">Feedback</a></li>
+            <li><a href="../Team/team.html">Team</a></li>
+            <li><a href="../Profile/profile.html" class="active">User Profile</a></li>
+            <li><a href="../Sitemap/sitemap.html">Sitemap</a></li>
+        </ul>
+    </nav>
+
+    </div>
+  </header>
+
+  <section class="page-hero">
+    <div class="hero-content">
+
+      <h1>Build Your Climate Profile </h1>
+      <p>Create your personal Climate Profile by answering a few simple
+         questions. As you complete each step, your profile and progress
+          will be updated, helping you understand how your actions can 
+          contribute to a more sustainable future.</p>
+    </div>
+      
+    </section>
+  <main>
+    <div class="profile-container">
+
+    <!-- LEFT SIDE -->
+
+    <div class="progress-card">
+
+        <h2>Your Progress</h2>
+
+        <div class="progress-top">
+
+            <span id="progress-text">0% Complete</span>
+
+            <span id="prompt-count">0 / 9 prompts</span>
+
+        </div>
+
+        <div class="progress-bar">
+
+            <div class="progress-fill"></div>
+
+        </div>
+
+        <button id="step1-btn" class="step-button">
+            Step 1 : Basic Details
+        </button>
+
+        <button id="step2-btn" class="step-button">
+            Step 2 : Climate Interests
+        </button>
+
+        <button id="step3-btn" class="step-button">
+            Step 3 : Climate Commitment
+        </button>
+
+        <button id="reset-profile">
+            Reset Profile
+        </button>
+
+    </div>
+
+
+
+    <!-- RIGHT SIDE -->
+
+    <div class="profile-card">
+
+        <div class="profile-header">
+
+            <img
+                id="profile-avatar"
+                src="default-avatar.png"
+                alt="Profile">
+
+            <div class="profile-info">
+
+                <h2 id="profile-name">Not Set</h2>
+
+                <label for="avatar-upload" class="upload-btn">
+                    Upload Image
+                </label>
+
+                <input
+                    type="file"
+                    id="avatar-upload"
+                    accept="image/*"
+                    hidden>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- STEP 1 -->
+
+        <div
+            id="basic-section"
+            class="profile-section"
+            style="display:none;">
+
+            <h3>Basic Details</h3>
+
+            <p>
+                <strong>Name:</strong>
+                <span id="display-name">Not Set</span>
+            </p>
+
+            <p>
+                <strong>Age:</strong>
+                <span id="display-age">Not Set</span>
+            </p>
+
+            <p>
+                <strong>Country:</strong>
+                <span id="display-country">Not Set</span>
+            </p>
+
+        </div>
+
+
+
+        <!-- STEP 2 -->
+
+        <div
+            id="interest-section"
+            class="profile-section"
+            style="display:none;">
+
+            <h3>Climate Interests</h3>
+
+            <div class="interest-tags">
+
+                <span id="display1" class="interest-tag"></span>
+
+                <span id="display2" class="interest-tag"></span>
+
+                <span id="display3" class="interest-tag"></span>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- STEP 3 -->
+
+        <div
+            id="commitment-section"
+            class="profile-section"
+            style="display:none;">
+
+            <h3>My Climate Commitments</h3>
+
+            <p>
+                <strong>Current Habit:</strong>
+                <span id="display-habit">Not Set</span>
+            </p>
+
+            <p>
+                <strong>Future Action:</strong>
+                <span id="display-action">Not Set</span>
+            </p>
+
+            <p>
+                <strong>Inspiring Others:</strong>
+                <span id="display-commitment">Not Set</span>
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+ 
+  </main>
+
+  <!-- FOOTER-->
+  <footer class="site-footer">
+    <div class="footer-inner">
+
+      <div class="footer-col">
+        <h3>ClimACT</h3>
+       <p> A student-built website raising awareness of<br> SDG 13 - Climate Action.</p>
+       
+        
+        
+      </div>
+
+    <div class="footer-col">
+        <h3>Pages</h3>
+
+        <ul>
+            <li><a href="../HomePage/home.html">Home</a></li>
+            <li><a href="../AIS/ais.html">Impact Simulator</a></li>
+            <li><a href="../Gallery/gallery.html">Gallery</a></li>
+            <li><a href="../Feedback/feedback.html">Feedback</a></li>
+            <li><a href="../Team/team.html">Team</a></li>
+            <li><a href="../Profile/profile.html">User Profile</a></li>
+            <li><a href="../Sitemap/sitemap.html">Sitemap</a></li>
+        </ul>
+
+    </div>
+
+      <div class="footer-col">
+        <h3>Quick Links</h3>
+        <!-- Link your relevant Web Pages-->
+         
+        <a href="../PageEditor/pageEditor_ST4.html">Page Editor</a>   
+        <a href="../ValidationPage/validation_ST4.html">Validation Page</a>
+        <a href="../Accessibility/accessibility.html">Accessibility </a>
+        <!-- Add your Student role number, Name, Student ID and the pages you're working on .Eg: Home Page, Team Page-->
+       <p>G. C. Rajarathna (W2212859) - Student 4<br>
+        Profile Page &amp; Sitemap Page</p>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <span>© 2026 ClimAct – University of Westminster</span>
+      <span>Built for 4COSC011W | SDG 13 Climate Action</span>
+    </div>
+  </footer>
+<script>
+    const step1Button = document.getElementById("step1-btn");
+    step1Button.addEventListener("click", startStep1);
+
+    const step2Button = document.getElementById("step2-btn");
+    step2Button.addEventListener("click", startStep2);
+
+    const step3Button = document.getElementById("step3-btn");
+    step3Button.addEventListener("click", startStep3);
+
+    let completedPrompts = 0;
+
+    let step1Completed = false;
+    let step2Completed = false;
+    let step3Completed = false;
+
+    function updateProgress() {
+
+        let progressFill = document.querySelector(".progress-fill");
+        let progressText = document.getElementById("progress-text");
+        let promptCount = document.getElementById("prompt-count");
+
+        let percentage = Math.round((completedPrompts / 9) * 100);
+
+        progressFill.style.width = percentage + "%";
+        progressText.textContent = percentage + "% Complete";
+        promptCount.textContent = completedPrompts + " / 9 prompts";
+    }
+
+
+    function startStep1() {
+
+        let start = confirm(
+            "Step 1 of 3: Basic Details\n\nClick OK to begin.\nClick Cancel to skip this step."
+        );
+
+        if (!start) {
+            return;
+        }
+
+        let questions = [
+            "Enter your name:",
+            "Enter your age:",
+            "Enter your country:"
+        ];
+
+        let ids = [
+            "display-name",
+            "display-age",
+            "display-country"
+        ];
+
+        for (let i = 0; i < questions.length; i++) {
+
+            let currentValue = document.getElementById(ids[i]).textContent;
+
+            // Only ask if this field has not been answered yet
+            if (currentValue == "Not Set") {
+
+                let answer = prompt(questions[i]);
+
+                if (answer !== null && answer.trim() !== "") {
+
+                    document.getElementById(ids[i]).textContent = answer;
+
+                    if(ids[i] == "display-name"){
+
+                        document.getElementById("profile-name").textContent = answer;
+
+                    }
+
+                    completedPrompts++;
+                    updateProgress();
+                }
+
+            }
+
+        }
+
+        document.getElementById("basic-section").style.display = "block";
+
+        // Check if all three questions have been answered
+        if (
+            document.getElementById("display-name").textContent != "Not Set" &&
+            document.getElementById("display-age").textContent != "Not Set" &&
+            document.getElementById("display-country").textContent != "Not Set"
+        ) {
+            step1Completed = true;
+
+            document.getElementById("step1-btn").classList.add("completed-step");
+
+            alert("Step 1 completed!");
+        }
+
+    }
+
+    function startStep2() {
+
+        let start = confirm(
+            "Step 2 of 3: Climate Interests\n\nClick OK to begin.\nClick Cancel to skip this step."
+        );
+
+        if (!start) {
+            return;
+        }
+
+        let questions = [
+            "What is your main climate interest?",
+            "Name a second area you care about:",
+            "Any third climate topic you follow?"
+        ];
+
+        let ids = [
+            "display1",
+            "display2",
+            "display3"
+        ];
+
+        for (let i = 0; i < questions.length; i++) {
+
+            let currentValue = document.getElementById(ids[i]).textContent;
+
+            // Only ask questions that are still "Not Set"
+            if (currentValue == "") {
+
+                let answer = prompt(questions[i]);
+
+                if (answer !== null && answer.trim() !== "") {
+
+                    document.getElementById(ids[i]).textContent = answer;
+
+                    completedPrompts++;
+                    updateProgress();
+                }
+
+            }
+
+        }
+
+        document.getElementById("interest-section").style.display = "block";
+
+        // Check if all three questions have been answered
+        if (
+        document.getElementById("display1").textContent.trim() != "" &&
+        document.getElementById("display2").textContent.trim() != "" &&
+        document.getElementById("display3").textContent.trim() != ""
+        ) {
+            step2Completed = true;
+
+            document.getElementById("step2-btn").classList.add("completed-step");
+
+            alert("Step 2 completed!");
+        }
+
+    }
+
+    function startStep3() {
+
+        let start = confirm(
+            "Step 3 of 3: My Climate Commitments\n\nClick OK to begin.\nClick Cancel to skip this step."
+        );
+
+        if (!start) {
+            return;
+        }
+
+        let questions = [
+            "What is one action you already take for the climate?",
+            "What is one new action you commit to starting?",
+            "How do you plan to inspire others to act on climate?"
+        ];
+
+        let ids = [
+            "display-habit",
+            "display-action",
+            "display-commitment"
+        ];
+
+        for (let i = 0; i < questions.length; i++) {
+
+            let currentValue = document.getElementById(ids[i]).textContent;
+
+            // Only ask questions that are still "Not Set"
+            if (currentValue == "Not Set") {
+
+                let answer = prompt(questions[i]);
+
+                if (answer !== null && answer.trim() !== "") {
+
+                    document.getElementById(ids[i]).textContent = answer;
+
+                    completedPrompts++;
+                    updateProgress();
+                }
+
+            }
+
+        }
+
+        document.getElementById("commitment-section").style.display = "block";
+
+        // Check if all three questions have been answered
+        if (
+            document.getElementById("display-habit").textContent != "Not Set" &&
+            document.getElementById("display-action").textContent != "Not Set" &&
+            document.getElementById("display-commitment").textContent != "Not Set"
+        ) {
+            step3Completed = true;
+
+            document.getElementById("step3-btn").classList.add("completed-step");
+
+            alert("Step 3 completed!");
+        }
+
+    }
+
+
+    const resetButton = document.getElementById("reset-profile");
+    resetButton.addEventListener("click", resetProfile);
+
+    function resetProfile() {
+
+        let reset = confirm("Are you sure you want to reset your profile?");
+
+        if (!reset) {
+            return;
+        }
+
+        // Reset progress
+        completedPrompts = 0;
+        updateProgress();
+
+        // Allow all steps again
+        step1Completed = false;
+        step2Completed = false;
+        step3Completed = false;
+
+        
+        document.getElementById("step1-btn").classList.remove("completed-step");
+        document.getElementById("step2-btn").classList.remove("completed-step");
+        document.getElementById("step3-btn").classList.remove("completed-step");
+
+        // Reset profile information
+        document.getElementById("display-name").textContent = "Not Set";
+        document.getElementById("display-age").textContent = "Not Set";
+        document.getElementById("display-country").textContent = "Not Set";
+
+        document.getElementById("display1").textContent = "";
+        document.getElementById("display2").textContent = "";
+        document.getElementById("display3").textContent = "";
+
+        document.getElementById("display-habit").textContent = "Not Set";
+        document.getElementById("display-action").textContent = "Not Set";
+        document.getElementById("display-commitment").textContent = "Not Set";
+
+        // Hide sections again
+        document.getElementById("basic-section").style.display = "none";
+        document.getElementById("interest-section").style.display = "none";
+        document.getElementById("commitment-section").style.display = "none";
+
+        // Reset profile header
+        document.getElementById("profile-name").textContent = "Not Set";
+
+        document.getElementById("profile-avatar").src ="default-avatar.png";
+
+
+        alert("Profile has been reset.");
+
+    }
+
+    const upload = document.getElementById("avatar-upload");
+
+    upload.addEventListener("change", function(){
+
+        let file = this.files[0];
+
+        if(file){
+
+            document.getElementById("profile-avatar").src =
+            URL.createObjectURL(file);
+
+        }
+
+    });
+</script>
+</body>
+</html>
