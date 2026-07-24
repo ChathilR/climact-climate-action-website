@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Validation Page - Kishala Kodithuwakku</title>
+
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="../PageEditor/css/pageEditor_validator.css">
+
+    
+
+</head>
+<body>
+    <span id="top"></span>
+    <a href="#top" class="go-top" aria-label="Go back to top of page">↑</a>
+
+    <header class="site-header">
+    <div class="header-inner">
+
+      <a href="../HomePage/home.html" class="site-identity">
+        <img src="../Assets/Images/logo.png" alt="ClimACT website logo" class="logo">
+        <span class="site-name">ClimACT</span>
+      </a>
+
+      <nav class="main-nav" aria-label="Main navigation">
+        <ul>
+          <li><a href="../HomePage/home.html">Home</a></li>
+            <li><a href="../Gallery/gallery.html">Gallery</a></li>
+            <li><a href="../AIS/ais.html">Impact Simulator</a></li>
+            <li><a href="../Feedback/feedback.html">Feedback</a></li>
+            <li><a href="../Team/team.html">Team</a></li>
+            <li><a href="../Profile/profile.html">User Profile</a></li>
+            <li><a href="../Sitemap/sitemap.html">Sitemap</a></li>
+        </ul>
+      </nav>
+
+    </div>
+  </header>
+
+    <section class="stud">
+        <h2>Kishala Kodithuwakku&nbsp;,&nbsp; CLIMA  &nbsp;, &nbsp;Student 3</h2>
+    </section>
+
+    <div class="container">
+        <main>
+
+            <section>
+                <h2 id="feedbackVal">Feedback Page validation report</h2>
+                    <p>The Feedback page was validated using the W3C Markup Validation Service. The first check flagged an error caused by the &lt;select&gt; element for programme sorting missing an associated accessible name, and a warning about the inline &lt;script&gt; block lacking a type declaration. The select's labelling was fixed by confirming the &lt;label for="sortPrograms"&gt; association was correctly linked, which resolved the error. The script warning was left as-is since HTML5 no longer requires a type attribute on scripts, and the validator treats it only as an informational note. After these checks the page validated with 0 errors.</p>
+                    <img src="../ValidationPage/images_ST3/feedbackvalidator.png" alt="W3C validation result for the Feedback page showing 0 errors">
+
+                <h3>Back to Page Editor page</h3>
+                    <p><a href="../PageEditor/pageEditor_ST3.html" style="color: blue; text-decoration: underline;">View Page Editor - Feedback</a></p>
+            </section>
+
+            <section>
+                <h2 id="teamVal">Team Page validation report</h2>
+                <p>The Team page was validated using the W3C Markup Validation Service. One warning was returned regarding the use of &lt;div role="group"&gt; on each team card, noting that a native grouping element could be considered instead, but this did not stop the page from validating successfully. No errors were reported, so the page passed on the first check with 0 errors and only this single accessibility-related warning.</p>
+                    <img src="../ValidationPage/images_ST3/teamvalidator.png" alt="W3C validation result for the Team page showing 0 errors">
+
+                <h3>Back to Page Editor page</h3>
+                    <p><a href="../PageEditor/pageEditor_ST3.html" style="color: blue; text-decoration: underline;">View Page Editor - Team</a></p>
+            </section>
+
+            <section>
+                <h2 id="contentVal">Content Page validation report</h2>
+                <p>The Content page was validated using the W3C Markup Validation Service. An error was initially reported because one &lt;figcaption&gt; began with a lower-case word straight after a missing article, which the validator did not flag as a markup error but which the linked spell-check tool queried; the genuine markup error was a stray closing tag left over from an earlier edit of the "Restoration and Protection Efforts" section. Removing the stray tag resolved the error, and the page then validated with 0 errors, leaving only a minor warning about the two-column layout order on narrow screens.</p>
+                    <img src="../ValidationPage/images_ST3/contentvalidator.png" alt="W3C validation result for the Content page showing 0 errors">
+
+                <h3>Back to Page Editor page</h3>
+                    <p><a href="../PageEditor/pageEditor_ST3.html" style="color: blue; text-decoration: underline;">View Page Editor - Content Page(Student 3)</a></p>
+            </section>
+            
+        </main>
+
+        <aside>
+            <h3>Pages validated:</h3>
+            <ul class="top-level-ul">
+                <li><a href="#feedbackVal">Feedback Page</a></li>
+                <li><a href="#teamVal">Team Page</a></li>
+                <li><a href="#contentVal">Content Page</a></li>
+            </ul>
+        </aside>
+    </div>
+
+    <footer class="site-footer">
+    <div class="footer-inner">
+
+      <div class="footer-col">
+        <h3>ClimACT</h3>
+       <p> A student-built website raising awareness of</br> SDG 13 - Climate Action.</p>
+      </div>
+
+      <div class="footer-col">
+        <h4>Pages</h4>
+        <ul>
+            <li><a href="../HomePage/home.html">Home</a></li>
+            <li><a href="../AIS/ais.html">Impact Simulator</a></li>
+            <li><a href="../Gallery/gallery.html">Gallery</a></li>
+            <li><a href="../Feedback/feedback.html">Feedback</a></li>
+            <li><a href="../Team/team.html">Team</a></li>
+            <li><a href="../Profile/profile.html">User Profile</a></li>
+            <li><a href="../Sitemap/sitemap.html">Sitemap</a></li>
+      </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+         <ul>
+            <li><a href="../PageEditor/pageEditor_ST3.html">Page Editor</a></li>
+            <li><a href="../ValidationPage/validation_ST3.html">Validation Page</a></li>
+            <li><a href="../Accessibility/accessibility.html">Accessibility </a></li>
+        </ul>
+       <p>Kishala Kodithuwakku (W2212872) - Student 3</br>
+        Feedback Page &amp; Team Page</p>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <span>© 2026 ClimAct – University of Westminster</span>
+      <span>Built for 4COSC011W | SDG 13 Climate Action</span>
+    </div>
+  </footer>
+</body>
+</html>

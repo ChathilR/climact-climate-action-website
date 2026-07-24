@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Validator Page Student - provide your student name</title>
+
+    <link rel="stylesheet" href="../PageEditor/pageEditor_validator.css"> <!-- External CSS link -->
+    <link rel="stylesheet" href="../style.css">
+
+    <style>
+      
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    display: flex;
+    flex-direction: row-reverse;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+main {
+    flex: 3;
+}
+aside {
+    flex: 1;
+    background-color: #f4f4f4;
+    position:sticky;
+    top:120px;
+    height:fit-content;
+    
+    padding: 15px;
+    border: 1px solid #ddd;
+    margin-right: 20px;
+}
+
+h2{
+    color: #333;
+}
+section {
+    margin-bottom: 20px;
+    padding: 15px;
+    border: 1px solid #ddd;
+    background-color: #fafafa;
+}
+header, footer {
+    text-align: center;
+    background-color: #333;
+    color: white;
+    padding: 10px 0;
+}
+
+.ref li{
+    list-style: none;
+    padding-bottom: 9px;
+}
+
+aside a{
+    text-decoration : none;
+}
+
+aside li{
+    padding-bottom: 4px;
+}
+.stud{text-align: center;}
+
+
+
+.top {
+    position: fixed;
+    bottom: 5%;
+    right: 5%;
+}
+        
+.top a {
+    padding: 10px 20px; /* Adds padding for button-like feel */
+    background-color: #007bff; /* Button color */
+    color: white; /* Text color */
+    text-decoration: none; /* Removes underline */
+    border-radius: 20px; /* Rounds the corners */
+    font-size: 12px; /* Adjust font size */
+    font-weight: bold; /* Make the text stand out */
+}
+
+.top a:hover {
+    background-color: #0056b3; /* Darker shade on hover */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2); /* Adds a subtle shadow */
+}
+
+img{
+    width: 90%;
+}
+
+
+table{
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+th, td{
+    padding: 4px;
+    border: 1px solid black;
+}
+thead{
+    background-color: #333;
+    color: azure;
+}
+
+      </style>
+
+</head>
+<body>
+    <span id="top"></span>
+      <a href="#top" class="go-top" aria-label="Go back to top of page">↑</a>
+
+    
+    <!-- Update the header and the footer to be consistent with the rest of the pages you implemented Optional -->
+
+    <header class="site-header">
+    <div class="header-inner">
+
+    
+    <!--WEBSITE BRANDING & LOGO-->
+      <a href="../HomePage/home.html" class="site-identity">
+        <img src="../Assets/Images/logo.png" alt="ClimACT website logo" class="logo">
+        <span class="site-name">ClimACT</span>
+      </a>
+
+      
+      <nav class="main-nav" aria-label="Main navigation">
+        <ul>
+          <li><a href="../HomePage/home.html">Home</a></li>
+            <li><a href="../Gallery/gallery.html">Gallery</a></li>
+            <li><a href="../AIS/ais.html">Impact Simulator</a></li>
+            <li><a href="../Feedback/feedback.html">Feedback</a></li>
+            <li><a href="../Team/team.html">Team</a></li>
+            <li><a href="../Profile/profile.html">User Profile</a></li>
+            <li><a href="../Sitemap/sitemap.html">Sitemap</a></li>
+        </ul>
+      </nav>
+
+    </div>
+  </header>
+
+    <section class="stud">
+        <h2>D.N.M.P.Peiris &nbsp,&nbsp;  CLIMA&nbsp;,&nbsp; Student 1</h2>
+    </section>
+
+    <div class="container">
+        <!-- Main content area -->
+        <main>
+
+            <!-- Update the content of the following sections with the information that corresponds to the pages you implemented  -->
+
+            <section>
+                <h2 id="splashVal">Home Page validation report</h2>
+                    <p>The Home page validation identified a stray &lt;div&gt; tag, which was caused by an extra closing tag that did not have a matching opening tag. After reviewing the page structure, the unnecessary tag was removed, resulting in properly nested HTML and a cleaner document structure.</p> 
+                    <img src="../ValidationPage/images_ST1/homeVal.png"><br><br>
+                                    
+                <h3>Back to Page Editor page</h3>
+                    <p><a href="../PageEditor/pageEditor_ST1.html#home" style="color: blue; text-decoration: underline;">View Page Editor - Home Page</a></p>
+                <!-- Update the path to link the Page Editor with the validation page and make it jump to the marker that contains a snapshot for the splash page -->
+            </section>
+
+            <section>
+                <h2 id="volunteerVal">Gallery Page validation report</h2>
+                <p>The Gallery page validation reported an invalid &lt;/br&gt; tag. Since &lt;br&gt; is a self-closing (void) HTML element, the closing tag is not valid in HTML5. This was corrected by replacing &lt;/br&gt; with &lt;br&gt;, allowing the page to pass validation without affecting its appearance.</p>
+                    <img src="../ValidationPage/images_ST1/galleryVal.png"><br><br>
+                                    
+                <h3>Back to Page Editor page</h3>
+                    <p><a href="../PageEditor/pageEditor_ST1.html#gallery" style="color: blue; text-decoration: underline;">View Page Editor - Gallery</a></p>
+                <!-- Update the path to link the Page Editor with the validation page and make it jump to the marker that contains a snapshot for the splash page -->
+            </section></a></p>
+
+            <section>
+                <h2 id="contentVal">Content Page validation report</h2>
+                <p>The Content page validation highlighted a heading hierarchy warning, where the page moved directly from an &lt;h2&gt; heading to an &lt;h4&gt; heading without using an &lt;h3&gt;. The heading structure was reorganised to follow the correct order, improving both accessibility and the semantic organisation of the page.</p>
+                    <img src="../ValidationPage/images_ST1/content1Val.png"><br><br>
+                                    
+                <h3>Back to Page Editor page</h3>
+                    <p><a href="../PageEditor/pageEditor_ST1.html#content" style="color: blue; text-decoration: underline;">View Page Editor - Content Page(Student 1)</a></p>
+                <!-- Update the path to link the Page Editor with the validation page and make it jump to the marker that contains a snapshot for the splash page -->
+            </section></a></p>
+
+
+            
+        </main>
+
+        <!-- Sidebar area -->
+        <aside>
+            
+
+        <!-- Customize this to the role you undertook. Keep only the list items you were responsible to develop, delete the rest -->
+            <ul class="top-level-ul">
+                    <li><a href="#splashVal" >Home Page</a></li>
+                    <li><a href="#volunteerVal">Gallery</a></li>
+                    <li><a href="#contentVal">Content Page Student 1</a></li>
+                    
+                </ul>
+        </aside>
+    </div>
+
+    <footer class="site-footer">
+    <div class="footer-inner">
+
+      <div class="footer-col">
+        <h3>ClimACT</h3>
+       <p> A student-built website raising awareness of</br> SDG 13 - Climate Action.</p>
+       
+        
+        
+      </div>
+
+      <div class="footer-col">
+        <h4>Pages</h4>
+        <ul>
+            <li><a href="../HomePage/home.html">Home</a></li>
+            <li><a href="../AIS/ais.html">Impact Simulator</a></li>
+            <li><a href="../Gallery/gallery.html">Gallery</a></li>
+            <li><a href="../Feedback/feedback.html">Feedback</a></li>
+            <li><a href="../Team/team.html">Team</a></li>
+            <li><a href="../Profile/profile.html">User Profile</a></li>
+            <li><a href="../Sitemap/sitemap.html">Sitemap</a></li>
+      </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <!-- Link your relevant Web Pages-->
+         <ul>
+            <li>  <a href="../PageEditor/pageEditor_ST1.html">Page Editor</a></li>   
+            <li><a href="../ValidationPage/validation_ST1.html">Validation Page</a></li>
+            <li><a href="../Accessibility/accessibility.html">Accessibility </a></li>
+
+        </ul>
+        <!-- Add your Student role number, Name, Student ID and the pages you're working on .Eg: Home Page, Team Page-->
+       <p>D.N.M.P.Peiris (W2212895) - Student 1</br>
+        Home Page &amp; Gallery Page</p>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <span>© 2026 ClimAct – University of Westminster</span>
+      <span>Built for 4COSC011W | SDG 13 Climate Action</span>
+    </div>
+  </footer>
+</body>
+</html>
